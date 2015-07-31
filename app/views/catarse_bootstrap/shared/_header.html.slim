@@ -1,10 +1,10 @@
 div class="main-header #{((defined?(overlayer) && overlayer) ? 'overlayer' : '')}"
   .w-row
-    .w-col.w-col-9.w-col-small-6.w-col-tiny-10.w-clearfix
+    .w-col.w-col-10.w-col-small-6.w-col-tiny-10.w-clearfix
       = link_to root_url, class: 'header-logo w-nav-brand', :title => CatarseSettings[:company_name] do
         =image_tag "catarse_bootstrap/new_logo_small.png", class: "img-logo img-logo-bootstrap"
       = yield :header_controls
-    .w-col.w-col-3.w-col-small-6.w-col-tiny-2.w-clearfix
+    .w-col.w-col-2.w-col-small-6.w-col-tiny-2.w-clearfix
       - if current_user
         .w-dropdown.user-profile
           = link_to '#', id: 'user-menu', class: 'w-dropdown-toggle dropdown-toggle' do
@@ -14,5 +14,7 @@ div class="main-header #{((defined?(overlayer) && overlayer) ? 'overlayer' : '')
       - else
         = link_to t('layouts.header.signin'), new_user_session_path, class: 'w-nav-link header-link w-nav-link btn-edit u-right'
 
-      = link_to t('layouts.header.help'), CatarseSettings[:support_forum], target: :_blank, class: 'w-nav-link w-hidden-small w-hidden-tiny header-link w-nav-link u-right',  id: 'guidelines_header_modal' if CatarseSettings[:support_forum].present?
+      - if CatarseSettings[:support_forum].present?
+        = link_to CatarseSettings[:support_forum], target: :_blank, class: 'w-nav-link w-hidden-small w-hidden-tiny header-link w-nav-link u-right help-link',  id: 'guidelines_header_modal' do
+          i.fa.fa-question-circle
 

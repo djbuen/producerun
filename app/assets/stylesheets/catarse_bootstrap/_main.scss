@@ -1803,10 +1803,33 @@ p {
 .header-search {
   position: relative;
   display: inline-block;
-  width: 40%;
+//  width: 40%;
   height: 40px;
   margin-bottom: 0px;
   margin-left: 20px;
+  .search-input {
+    border-color: #ddd transparent #ddd #ddd;
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:focus {
+      border-color: darken(#ddd, 5%) transparent darken(#ddd, 5%) darken(#ddd, 5%);
+    }
+  }
+
+  .search-button {
+    padding: 10px;
+    background-color: #ddd;
+    border-color: #ddd;
+  }
+}
+.help-link {
+  padding: 7px;
+  margin-right: 10px;
+  color: #4389BF;
+  font-size: 25px;
+  line-height: 1;
 }
 .u-text-center {
   text-align: center;
