@@ -634,9 +634,14 @@ p {
   right: -73px;
   padding-top: 9px;
   padding-bottom: 9px;
-  background-color: rgba(37, 49, 57, 0.6);
-  color: #f1f2f3;
+  color: darken(#00B22D, 10%);
+//  text-decoration: underline;
   line-height: 20px;
+
+  &.btn-login:hover {
+    color: #fff;
+    background-color: darken(#4389bf, 5%);
+  }
 }
 .header-link.help {
   left: 211px;
@@ -1830,6 +1835,9 @@ p {
   color: #4389BF;
   font-size: 25px;
   line-height: 1;
+  &:hover {
+    color: darken(#4389bf, 5%);
+  }
 }
 .u-text-center {
   text-align: center;
