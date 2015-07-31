@@ -574,8 +574,8 @@ p {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 15px;
-  border-bottom: 1px solid rgba(37, 49, 57, 0.6);
-  background-color: #3f4752;
+  border-bottom: 1px solid rgba(37, 49, 57, 0.1);
+//  background-color: #3f4752;
   min-height: 50px;
 
   @media (min-width: 900px) {
@@ -2628,7 +2628,7 @@ p {
   color: #f1f2f3;
 }
 .hero-search {
-  margin-top: -65px;
+  margin-top: -55px;
   margin-bottom: 30px;
   padding-top: 110px;
   background-color: #5b97c6;
@@ -2636,7 +2636,30 @@ p {
   background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed;
+
+  .discover-form {
+    .search-input {
+      border-color: #fff transparent #fff #fff;
+      background-color: #fff;
+      margin-left: 10%;
+      margin-top: 0;
+      width: 90%;
+
+      &:focus {
+        background-color: #fff;
+      }
+    }
+  }
+
+  .search-button {
+    background-color: #eee;
+    color: #aaa;
+    padding-top: 7px;
+    margin-top: 0 !important;
+    border-color: transparent transparent transparent #ddd;
+  }
 }
+
 .hero-search.closed {
   padding-bottom: 0px;
 }
