@@ -11,7 +11,7 @@ module User::OmniauthHandler
           email: hash['info']['email'],
           bio: (hash["info"]["description"][0..139] rescue nil),
           locale: I18n.locale.to_s,
-          image_url: "https://graph.facebook.com/#{hash['uid']}/picture?type=large"
+          image_url: "https://graph.facebook.com/#{hash['uid']}/picture?type=square"
         }
       )
     end
