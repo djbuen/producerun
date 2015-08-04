@@ -596,6 +596,7 @@ DEPENDENCIES
   best_in_place!
   better_errors
   binding_of_caller
+  braintree
   browser
   capybara (~> 2.2.0)
   carrierwave (~> 0.10.0)
@@ -676,3 +677,6 @@ DEPENDENCIES
   video_info (>= 1.1.1)
   weekdays
   yml_gtranslate!
+
+BUNDLED WITH
+   1.10.5
