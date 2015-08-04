@@ -103,6 +103,9 @@ gem 'routing-filter', '~> 0.4.0.pre'
 gem 'moip', github: 'catarse/moip-ruby', ref: 'c0225ad71645cd1df35dafa1e45c9f092b3abb9e'
 gem 'httpclient',     '>= 2.2.5'
 
+
+gem 'braintree'
+
 group :production do
   # Gem used to handle image uploading
   gem 'fog', '>= 1.3.1'

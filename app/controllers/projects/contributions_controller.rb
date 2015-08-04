@@ -5,7 +5,7 @@ class Projects::ContributionsController < ApplicationController
   has_scope :available_to_count, type: :boolean
   has_scope :with_state
   has_scope :page, default: 1
-  after_filter :verify_authorized, except: [:index]
+  after_filter :verify_authorized, except: [:index,:braintree_payment]
   belongs_to :project
   before_filter :detect_old_browsers, only: [:new, :create]
 
@@ -71,6 +71,40 @@ class Projects::ContributionsController < ApplicationController
       end
     end
     @thank_you_id = @project.id
+  end
+
+  def braintree_payment
+    @contribution = Contribution.find(params[:id])
+    @valid_payment = false
+    if @contribution
+      @contribution.attributes =params[:contribution]
+      result = Braintree::Transaction.sale(
+          :merchant_account_id => ENV['braintree_sub_merchant_id'],
+          :amount => @contribution.value.to_f,
+          :credit_card => {
+              :number => @contribution.card_number,
+              :expiration_month => @contribution.card_expiration_month,
+              :expiration_year => @contribution.card_expiration_year,
+              :cvv => @contribution.card_cvv
+          },
+          :options => {
+              :submit_for_settlement => true,
+              :hold_in_escrow => true
+          },
+          :service_fee_amount => '0.00'
+      )
+    end
+
+    if result.success?
+      @valid_payment = true
+      @contribution.payment_method = 'Braintree'
+      @contribution.payment_id = result.transaction.id
+      @contribution.save
+      @contribution.confirm!
+      flash[:notice] = t('projects.contributions.checkout.success')
+    else
+      flash.now[:alert] = result.message
+    end
   end
 
   protected

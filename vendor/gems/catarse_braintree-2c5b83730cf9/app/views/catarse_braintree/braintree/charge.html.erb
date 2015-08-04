@@ -58,13 +58,13 @@
         <div class="col-md-12">
           <div class="catarse_braintree_form">
             <div class="hero-unit">
-              <h2>Crowdfunding Payments with Braintree</label></h2>
+              <h2>Crowdfunding Payments with Braintree</h2>
               <p>You've chosen to contribute using a credit card. You may use your Visa, Mastercard or Amex. Credit Card information is not stored on the crowdfunding website, and is safely stored on Braintree's servers.</p>
             </div>
             <div class="panel">
               <% i18n_scope = 'projects.contributions.charge.payment_form' %>
               <div class="panel-body">
-                <%= form_tag pay_braintree_path(params[:id]), id: 'checkout', autocomplete: false, style: "width: 100%;" do %>
+                <%= form_tag main_app.pay_braintree_path(params[:id]), id: 'checkout', autocomplete: false, style: "width: 100%;" do %>
                 <div class="card card-terciary">
                   <% inputs = CatarseBraintree::Request::PaymentMethod::FORM_INPUTS %>
                   <% test_vals = CatarseBraintree::Request::PaymentMethod::TEST_VALS %>
@@ -80,7 +80,7 @@
                   <legend><label class="label label-success label-sm">Card Details</label></legend>
                   <p class="col-md-4">
                     <label class="control-label"><%= t(:card_number, scope: i18n_scope) %></label><br/>
-                    <input data-b/raintree-name="number" value="4111111111111111" type="text" class="input input-lg text-field" />
+                    <input data-braintree-name="number" value="4111111111111111" type="text" class="input input-lg text-field" />
                   </p>
                   <p class="col-md-4">
                     <label class="control-label"><%= t(:cvv, scope: i18n_scope) %></label><br/>

@@ -41,6 +41,7 @@ Catarse::Application.routes.draw do
     end
     resources :contributions, {controller: 'projects/contributions'} do
       put :credits_checkout, on: :member
+      post :braintree_payment,on: :member
     end
 
     get 'video', on: :collection
