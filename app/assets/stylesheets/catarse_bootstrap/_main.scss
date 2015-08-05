@@ -410,7 +410,7 @@ p {
 }
 .project-stats {
   padding-top: 24px;
-  padding-left: 20px;
+//  padding-left: 20px;
   text-align: left;
 }
 .warning {
@@ -2736,6 +2736,9 @@ p {
 .input-title {
   display: inline-block;
   width: 920px;
+}
+.u-font-italic {
+  font-style: italic;
 }
 html.w-mod-js *[data-ix="fade-in"] {
   opacity: 0;

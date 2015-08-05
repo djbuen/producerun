@@ -66,8 +66,7 @@ en:
       contribute_project:
         display_status:
           reached_goal: This campaign will be successful and funded %{date}
-          not_reached_goal: This campaign will only be funded if at least %{goal} are
-            achieved by %{date}
+          not_reached_goal: You will only be charged if at least %{goal} is achieved by %{date}
           failed: This campaign did not reach the minimum %{goal} %{date} up and was
             not funded
           rejected: This campaign was not accepted.
