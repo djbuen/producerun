@@ -103,7 +103,7 @@ class Projects::ContributionsController < ApplicationController
       @contribution.confirm!
       flash[:notice] = t('projects.contributions.checkout.success')
     else
-      flash.now[:alert] = result.message
+      flash.now[:alert] = result.message rescue nil
     end
   end
 
