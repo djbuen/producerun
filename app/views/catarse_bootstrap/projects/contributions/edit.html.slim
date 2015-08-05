@@ -35,9 +35,9 @@
                 / TODO: This is a dummy form data
                 = form.input :payer_company_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
               .w-row
-                = form.input :address_line_1, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+                = form.input :address_line_1, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
               .w-row
-                = form.input :address_line_2, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
+                = form.input :address_line_2, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field'}
               .w-row
                 = form.input :address_city, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true
                 = form.input :address_state, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {required: true, class: 'w-input text-field required'}, validation_text: true, required: true

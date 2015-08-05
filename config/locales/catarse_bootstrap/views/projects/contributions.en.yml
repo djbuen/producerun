@@ -91,6 +91,7 @@ en:
         MoIP: MoIP
         Credits: credits
         error: Ooops .
+        braintree: Click Here For Credit Card
       show:
         header_subtitle: Without you maybe this campaign did not have a chance .
         header_title: Thank you very much!
