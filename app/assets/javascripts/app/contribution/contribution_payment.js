@@ -10,6 +10,7 @@ App.addChild('ContributionPaymentForm', _.extend({
     },
 
     onSubmitClick: function(){
+        this.clearErrorBox();
         if(this.validate()){
             this.$errorMessage.hide();
         }
@@ -36,6 +37,9 @@ App.addChild('ContributionPaymentForm', _.extend({
     activate: function(){
         this.$errorMessage = this.$('#error-message');
         this.setupForm();
+    },
+    clearErrorBox: function(){
+        $("#catarse_braintree_form_error").html('');
     }
 
 
