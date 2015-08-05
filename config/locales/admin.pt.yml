@@ -50,9 +50,9 @@ pt:
         between_updated_at: 'Atualizados entre'
         by_user_email: 'Email do realizador'
         id: ID
-        name: 'Titulo'
-        send_to_trash: "Deletar"
-        send_to_draft: 'Mandar para DRAFT!'
+        name: 'Name'
+        send_to_trash: "Deleter"
+        send_to_draft: 'Send to DRAFT!'
         reject: 'Rejeitar!'
         approve: 'Aprovar!'
         user_id: 'User ID'
@@ -123,7 +123,7 @@ pt:
           normal_email: 'E-mail no Catarse'
           payment_id: 'ID Pagamento'
           acquirer_tid: 'TID Operadora'
-          payment_method: 'Meio de pagamento'
+          payment_method: 'Means of Payment Method'
           payment_choice: 'Opção de pagamento'
           acquirer_name: 'Operadora de cartão'
           installments: 'Parcelas'
