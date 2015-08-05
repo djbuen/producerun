@@ -8,13 +8,13 @@
         .u-text-center
           .fontsize-largest.text-success.u-marginbottom-20 Thanks!
           .fontsize-base.u-marginbottom-30
-            | You are part of the group 
+            | You are part of a group of
             => @project.total_contributions
-            ' people who want to take the
+            ' people who want to bring this campaign
             span.fontweight-semibold= link_to @project.name, project_by_slug_url(@project.permalink), class: 'alt-link'
-            | &nbsp;do papel! You will receive confirmation of payment by e-mail once it is processed. You can also track the status of their support & nbsp;
+            | &nbsp;to town! You will receive confirmation of payment by e-mail once it is processed. You can also track the status of the campaign
             = link_to 'through your profile', edit_user_path(resource.user, anchor: 'contributions'), class: 'link-hidden fontweight-semibold'
-            | .&nbsp;Share your support of this and increase the chances of the project hitting the campaign target so you can recieve this ProduceRun!
+            | .&nbsp;Share your support of this and increase the chances of this campaign hitting the campaign target so you can recieve these farm fresh goods!
         .w-row.u-marginbottom-20
           .w-col.w-col-6.w-col-small-6.w-col-tiny-6.w-sub-col-middle
             div
@@ -30,7 +30,7 @@
 
 .section.u-marginbottom-40
   .w-container
-    .u-marginbottom-20.fontweight-semibold.fontsize-base.u-text-center Draft recommendations for you
+    .u-marginbottom-20.fontweight-semibold.fontsize-base.u-text-center Campaign recommendations for you
     .w-row
       == render_projects @contribution.recommended_projects.limit(3), 'thankyou', { wrapper_class: 'w-col w-col-4' }
 
