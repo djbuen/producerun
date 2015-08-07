@@ -8,7 +8,7 @@
         .u-text-center
           .fontsize-largest.text-success.u-marginbottom-20 Thanks!
           .fontsize-base.u-marginbottom-30
-            | You are part of a group of
+            | You are part of a group of 
             => @project.total_contributions
             ' people who want to bring this campaign
             span.fontweight-semibold= link_to @project.name, project_by_slug_url(@project.permalink), class: 'alt-link'
@@ -41,7 +41,7 @@
         | Follow this category #{@project.category.name_pt}? You can get first access to new campaigns sent straight to your email!
       .w-row
         .w-col.w-col-4.w-col-push-4
-          = link_to "Seguir #{@project.category.name_pt}", subscribe_category_path(@project.category), class: 'btn btn-large btn-dark'
+          = link_to "Follow #{@project.category.name_pt}", subscribe_category_path(@project.category), class: 'btn btn-large btn-dark'
 
 = render 'shared/footer'
 
