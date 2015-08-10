@@ -18,7 +18,7 @@ en:
         address_state: State
         address_street: Address
         address_zip_code: Zip code
-        cpf: EIN Number
+        cpf: Last 4 Digits of SS No.
         state_inscription: State Registration
         email: Email
         full_name: Full Name / Company Name
@@ -36,7 +36,7 @@ en:
         bank: Bank
         bank_id: Bank
         owner_name: Cardholder Name
-        owner_document: EIN number of the holder
+        owner_document: Last 4 Digits of SS Number of the holder
         agency: agency
         agency_digit: digit agency
         account: Account No.
