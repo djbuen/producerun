@@ -57,7 +57,7 @@ en:
         insufficient_credits: You own %{credits} credits.
         choose_payment: Choose the payment method
         choose_payment_subtitle: SECURE PAYMENT
-        cpf: 'To prosseguir , please report :'
+        cpf: 'To continue , please report :'
         credits_notice_html: This will be paid with their claims.
         live_in_brazil: I live in Brazil.
         number_card: Card data

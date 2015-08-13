@@ -138,7 +138,7 @@ en:
       publish: post new
       discard: discard
       warning: All published campaign updates are sent directly to their supporters by email.
-      old_posts: old news
+      old_posts: Campaign news
     dashboard_project:
       budgets_hint_html: Enter a list of the main items of the budget.
       budget_hint_html: Where will you deliver?

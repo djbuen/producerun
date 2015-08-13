@@ -21,8 +21,8 @@ en:
     posts:
       project_post:
         unavailable: This novelty is only available to supporters.
-        contribute: Support
-        unavailable_contribute: this campaign to view it .
+        contribute: Buy
+        unavailable_contribute: Now.
         destroy: Remove Novelty
         destroy_confirmation: Do you want to remove this news?
       new:
