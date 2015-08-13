@@ -55,7 +55,7 @@ puts 'Seeding the database...'
   farmers_blog_url: "http://farmers.producerun.com",
   github_url: 'http://github.com/producerun',
   managemymarket_url: "https://managemymarket.com/default.aspx",
-  contato_url: ''http://support.producerun.com/',
+  contato_url: 'http://support.producerun.com/',
   mixpanel_token: 'e0e80f9f416708ba621aaf3d6aff3b85',
   sendgrid_user_name: 'hackandgrow',
   minimum_goal_for_video: '5000',
