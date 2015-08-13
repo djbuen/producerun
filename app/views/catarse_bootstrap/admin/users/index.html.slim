@@ -26,6 +26,10 @@
           = form.label :has_credits, t('.credits')
         .w-col-2.w-col
           = form.button :submit, t('admin.filter.submit'), class: 'button medium negative'
+        .w-row
+          .w-col-12.w-col
+            = t('total_of_users')
+            br = @total_users
 
   = paginate @users
   - if @users.empty?
