@@ -3,7 +3,7 @@ class ContributionDecorator < Draper::Decorator
   include Draper::LazyHelpers
 
   def display_value
-    number_to_currency source.localized.value
+    number_to_currency source.localized.value,precision: 2
   end
 
   def display_date date_field

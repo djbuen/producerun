@@ -46,7 +46,7 @@ class Projects::ContributionsController < ApplicationController
     # Select
     if params[:reward_id] && (@selected_reward = @project.rewards.find params[:reward_id]) && !@selected_reward.sold_out?
       @contribution.reward = @selected_reward
-      @contribution.value = "%0.0f" % @selected_reward.minimum_value
+      @contribution.value = @selected_reward.minimum_value
     end
   end
 

@@ -20,7 +20,7 @@ class RewardDecorator < Draper::Decorator
         </div>
     }
     %{
-      <label data-minimum-value="#{source.minimum_value > 0 ? source.minimum_value.to_i : '1'}" class="w-form-label fontsize-large fontweight-semibold" for="contribution_reward#{source.id && "_#{source.id}"}">
+      <label data-minimum-value="#{source.minimum_value > 0 ? source.minimum_value.to_f : '1'}" class="w-form-label fontsize-large fontweight-semibold" for="contribution_reward#{source.id && "_#{source.id}"}">
         #{source.minimum_value > 0 ? source.display_minimum+' ' : I18n.t('rewards.index.dont_want')}
       </label>
       <div class="w-row">
@@ -45,7 +45,7 @@ class RewardDecorator < Draper::Decorator
   end
 
   def display_minimum
-    number_to_currency source.minimum_value
+    number_to_currency source.minimum_value,precision: 2
   end
 
   def short_description
