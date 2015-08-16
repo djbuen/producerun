@@ -13,10 +13,11 @@ App.addChild('Contribution', {
   },
 
   updateTotalText: function(amount) {
-    if (amount>99999) {
-      this.$value_text.text(this.abbreviateAmt(amount,1));
+    if (amount>9999) {
+      var tAmount = this.abbreviateAmt(amount.toFixed(2),2);
+      this.$value_text.text(tAmount);
     } else {
-      this.$value_text.text(amount);
+      this.$value_text.text(amount.toFixed(2));
     }
   },
 
