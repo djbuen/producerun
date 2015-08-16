@@ -12,7 +12,7 @@ class Project::StateValidator < ActiveModel::Validator
       validate_presence_of_nested_attribute(account, attribute)
     end
 
-    validate_same_value_of(account, :owner_document, :cpf)
+    # validate_same_value_of(account, :owner_document, :cpf)
   end
 
   def approved
