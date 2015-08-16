@@ -283,3 +283,15 @@ $payment: sprite-map("sprites/payment/*.png")
 .payment-lock
   display: inline-block
   +sprite-dimensions($payment, icon-lock)
+
+.btn-uber
+  margin-top: 0.5em
+  width: 152px
+  height: 33px
+  background: #333 url("/assets/xuber_16.png") 10px center no-repeat
+  display: inline-block
+  background-size: 152px
+  border-radius: 4px
+  &:hover
+    background-image: url('/assets/uber_16.png')
+    background-color: #f4f4f4

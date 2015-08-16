@@ -30,7 +30,16 @@
           .back-reward-input-reward.placeholder $
           #contribution_value_text.w-input.back-reward-input-reward.u-marginbottom-20.contribution-text
             = 0
-        a#submit.btn.btn-large href="#" = t('.next_step')
+
+        p.u-text-center
+          a#submit.btn.btn-large href="#" = t('.next_step')
+
+        p.u-text-center.u-margintop-20
+          'Can't make the pick up? Register and order an Uber to pick up on your behalf.
+          br
+          'Click the link below.
+          br
+          a#ride_with_uber.btn-uber href="#"
   .section
     .w-container
       .w-row
