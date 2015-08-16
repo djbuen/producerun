@@ -33,8 +33,9 @@ App.addChild('Contribution', {
   activate: function(){
     this.$value = this.$('#contribution_value');
     this.$value_text = this.$('#contribution_value_text');
-    this.$minimum = this.$('#minimum-value')
-    this.clickReward({currentTarget: this.$('input[type=radio]:first').parent()[0]});
+    this.$minimum = this.$('#minimum-value');
+    this.clickReward({currentTarget: this.$('input:checked').parent()[0]});
+    console.log(this);
   },
 
   resetReward: function(event){
