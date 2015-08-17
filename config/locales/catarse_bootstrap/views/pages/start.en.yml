@@ -2,7 +2,7 @@
 en:
   pages:
     start:
-      page-title: Start a ProduceRun Campaign?
+      page-title: Start Selling food?
       title: Start Pre-Selling Your Food To Your Community!
       submit: Start your campaign
       learn-more: Learn more
@@ -25,5 +25,9 @@ en:
       time:
         title: Easily Communicate with your supporters and deliver to them
         content: Your campaign has been successful, payments have been collected and you deliver to your supporters.
-          !
-        link: Learn how our rate helps keep ProduceRun
+        pricing:
+        title: Simple Pricing 
+        content: We have to cover our costs too so we can eat too, our commission on sales thru our website is 3% plus credit card fees on total successful campaign sale.
+        There is no extra costs, please contact us if you have any further questions!
+        link: See pricing examples at ProduceRun Support.
+        
