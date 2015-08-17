@@ -32,6 +32,16 @@ en:
         account: Account No.
         account_digit: Digit account
         account_type: Account type
+        bank_routing_number: Bank Routing Number
+        checking_account_number: Checking Account Number
+        checking_account_number_confirmation: Verify Checking Routing Number
+        account_holder: Account Holder
+        bank_dob: Date Of Birth
+        bank_ss_number: Bank SS Number
+        bank_street_address: Stree Address
+        bank_state: State
+        bank_zip: Zip
+        bank_phone_number: Phone Number
       bank_account:
         bank: Bank
         bank_id: Bank
@@ -230,6 +240,32 @@ en:
               not_same: EIN of registration and completed bank details are not equal.
             account_type:
               blank: Account type can not be blank
+            bank_routing_number:
+              blank: Bank Routing number can't be blank.
+            checking_account_number:
+              not_a_number: Account Number is not a number
+              confirmation: Account Number and Verify Account Number does not match
+              blank: Account Number can't be blank.
+              not_same: Account Number and Verify Account Number does not match
+            checking_account_number_confirmation:
+              not_a_number: Account Number is not a number
+              confirmation: Account Number and Verify Account Number does not match
+              blank: Account Number Confirmation can't be blank.
+            account_holder:
+              blank: Account Holder can't be blank.
+            street_address:
+              blank: Street Address can't be blank.
+            state:
+              blank: State can't be blank.
+            zip_code:
+              blank: Bank Zip Code can't be blank.
+            bank_dob:
+              blank: Date of birth can't be blank.
+            bank_phone_number:
+              blank: Bank Phone Number can't be blank.
+            bank_ss_number:
+              wrong_length: SS Number should be %{count} characters
+              blank: Last 4 digits of SS Number can't be blank.
         project:
           attributes:
             video_url:

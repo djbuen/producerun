@@ -67,7 +67,7 @@ class ProjectPolicy < ApplicationPolicy
 
   def account_attributes
     if done_by_owner_or_admin?
-      { account_attributes: ProjectAccount.attribute_names.map(&:to_sym) }
+      { account_attributes: ProjectAccount.attribute_names.map(&:to_sym) << [:checking_account_number_confirmation] }
     end
   end
 

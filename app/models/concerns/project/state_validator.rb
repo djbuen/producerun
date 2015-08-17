@@ -8,11 +8,11 @@ class Project::StateValidator < ActiveModel::Validator
   def online
     in_analysis
     approved
-    %w(full_name email cpf address_street address_number address_city address_state address_zip_code phone_number bank agency account account_digit owner_name owner_document account_type).each do |attribute|
+    %w(full_name email cpf address_street address_number address_city address_state address_zip_code phone_number bank_routing_number checking_account_number checking_account_number_confirmation account_holder bank_dob bank_ss_number street_address state zip_code bank_phone_number).each do |attribute|
       validate_presence_of_nested_attribute(account, attribute)
     end
 
-    # validate_same_value_of(account, :owner_document, :cpf)
+    validate_same_value_of(account, :checking_account_number, :checking_account_number_confirmation)
   end
 
   def approved

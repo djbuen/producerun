@@ -70,38 +70,56 @@
           .fontsize-base.fontweight-semibold= t('.account_title')
           .fontsize-small.u-marginbottom-20= t('.account_subtitle_html')
 
-          .w-form.card.card-terciary
-            .w-row
-              .w-col.w-col-6.w-sub-col
-                = form.input :bank_id, as: :select, collection: Bank.to_collection, class: 'w-select positive', 
-                input_html: { class: 'positive', required: true }
-              .w-col.w-col-6
-                .w-row
-                  .w-col.w-col-6.w-col-small-6.w-col-tiny-6.w-sub-col-middle
-                    = form.input :agency, as: :string, 
-                    input_html: { class: 'positive', required: true }
-                  .w-col.w-col-6.w-col-small-6.w-col-tiny-6
-                    = form.input :agency_digit, as: :string, 
-                    input_html: { class: 'positive', required: true }
-            .w-row
-              .w-col.w-col-6.w-sub-col
-                .w-row
-                  .w-col.w-col-6.w-col-small-6.w-col-tiny-6.w-sub-col-middle
-                    = form.input :account, as: :string, 
-                    input_html: { class: 'positive', required: true }
-                  .w-col.w-col-6.w-col-small-6.w-col-tiny-6
-                    = form.input :account_digit, as: :string, 
-                    input_html: { class: 'positive', required: true }
-              .w-col.w-col-6
-                = form.input :owner_name, as: :string, 
-                input_html: { class: 'positive', required: true }
-            .w-row
-              .w-col.w-col-6.w-sub-col
-                = form.input :owner_document, as: :tel, 
-                input_html: { class: 'positive', required: true, data: { :'validate-cpf-cnpj' => true } }
-              .w-col.w-col-6
-                = form.input :account_type, as: :select, collection: ['Corrente', 'Poupança'], class: 'w-select positive',
-                input_html: { class: 'positive', required: true }
+          .w-row
+            .w-form.card.card-terciary
+              .w-row
+                = form.label :bank_routing_number, class: 'field-label fontweight-semibold force-text-dark' do
+                  'Routing Number
+                  = form.input_field :bank_routing_number, class: 'w-input text-field positive required'
+              .w-row
+                = form.label :checking_account_number, class: 'field-label fontweight-semibold force-text-dark' do
+                  'Checking Account Number
+                  = form.input_field :checking_account_number, class: 'w-input text-field positive required'
+              .w-row
+                = form.label :verify_checking_account_number, class: 'field-label fontweight-semibold force-text-dark' do
+                  'Verify Checking Account Number
+                  = form.input_field :checking_account_number_confirmation, class: 'w-input text-field positive required'
+              .w-row
+                = form.label :account_holder, class: 'field-label fontweight-semibold force-text-dark' do
+                  'Account Holder
+                  = form.input_field :account_holder, class: 'w-input text-field positive required'
+              .w-row
+
+                .w-col-7.w-col.w-sub-col
+                  = form.label :dob, class: 'field-label fontweight-semibold force-text-dark' do
+                    'Date of Birth
+                  .w-row
+                    = form.date_select :bank_dob, {order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}}, class: 'w-select positive required', style: 'width:30%;display:inline;'
+                .w-col-5.w-col
+                  .w-row
+                    = form.label :account_holder, class: 'field-label fontweight-semibold force-text-dark' do
+                      'Last 4 Digits of SS No.
+                    = form.input_field :bank_ss_number, class: 'w-input text-field positive required', as: "string"
+              .w-row
+                = form.label :street_address, class: 'field-label fontweight-semibold force-text-dark' do
+                  'Street Address
+                = form.input_field :street_address, class: 'w-input text-field positive required'
+              .w-row
+
+                .w-col-3.w-col.w-sub-col
+                  = form.label :state, class: 'field-label fontweight-semibold force-text-dark' do
+                    'State
+                  = form.input_field :state, class: 'w-input text-field positive required'
+
+                .w-col-3.w-col.w-sub-col
+                  = form.label :zip_code, class: 'field-label fontweight-semibold force-text-dark' do
+                    'Zip
+                  = form.input_field :zip_code, class: 'w-input text-field positive required'
+
+                .w-col-6.w-col
+                  = form.label :bank_phone_number, class: 'field-label fontweight-semibold force-text-dark' do
+                    'Phone Number
+                  = form.input_field :bank_phone_number, class: 'w-input text-field positive required'
         .w-col.w-col-4
           .w-hidden-small.w-hidden-tiny.card.u-radius.u-marginbottom-20 data-ix="new-interaction" 
             .fontsize-small.fontweight-semibold.u-marginbottom-20 Useful links
@@ -110,7 +128,6 @@
                 a.alt-link href="http://support.producerun.com" target="_blank"  ProduceRun issues Invoice?
               li.alt-link.fontsize-smaller.u-marginbottom-10
                 a.alt-link href="http://support.producerun.com" target="_blank"  As the transfer of funds will be made?
-
       div
         .w-container
           .w-row
