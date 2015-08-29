@@ -9,6 +9,33 @@
       = link_to t('.back_a_project'), explore_path(ref: 'home_banner_explore'), class: 'btn btn-large'
   /video.hero-video autoplay="autoplay" loop="loop" preload="auto" poster="/assets/producerun/hero-01.jpg"
     source src="https://s3.amazonaws.com/producerun/PR+PROMO.mp4" type="video/mp4"
+    
+    <!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNJI5etalxCn5wqpxtA6T_4HTbiOXk7Pg&callback=initMap">
+    </script>
+  </body>
+</html>
 
 - if current_user && @projects_near.present?
   .section.u-marginbottom-40
