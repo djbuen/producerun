@@ -49,6 +49,7 @@ var App = window.App = Skull.View.extend({
     Backbone.history.start({pushState: false});
     this.maskAllElements();
     this.applyErrors();
+    this.loadGMaps();
   },
 
   flash: function() {
@@ -87,8 +88,29 @@ var App = window.App = Skull.View.extend({
     $.each($('[data-applyerror=true]'), function(i, item){
       $(item).addClass('error');
     })
-  }
+  },
 
+  loadGMaps: function() {
+    var mapOptions = {
+      zoom: 13,
+      center: new google.maps.LatLng(41.9630387,-91.6635387),
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel: false
+    };
+    var map = new google.maps.Map($("#map")[0], mapOptions)
+
+    for (var i in pings) {
+      var ping = pings[i];
+      console.log(ping.lat + " - " + ping.lng);
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(ping.lat, ping.lng),
+        title: ping.created_at
+      });
+
+      // To add the marker to the map, call setMap();
+      marker.setMap(map);
+    }
+  }
 });
 
 $(function(){

@@ -15,5 +15,5 @@ en:
   site:
     description: The ProduceRun is a different tool - and collaborative - to take their part of the project !
     keywords: ProduceRun , crowdfunding , collective financing , design, community, fresh, food, farm, farmers, open source
-    meta_title: "%{title} * %{company_name}"
+    meta_title: "%{title} | %{company_name}"
     title: ProduceRun - Buy Fresh Food Directly From Farm
