@@ -49,7 +49,7 @@ var App = window.App = Skull.View.extend({
     Backbone.history.start({pushState: false});
     this.maskAllElements();
     this.applyErrors();
-    this.loadGMaps();
+    //this.loadGMaps();
   },
 
   flash: function() {
