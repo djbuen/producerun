@@ -13,15 +13,15 @@
 .project-start-wrapper
   .page-header
     .w-container.no-responsive
-      .fontsize-largest.u-text-center.u-marginbottom-70.u-margintop-40 = t('pages.start.title')
-      - statistics = Statistics.first
+      /.fontsize-largest.u-text-center.u-marginbottom-70.u-margintop-40 = t('pages.start.title')
+      /- statistics = Statistics.first
       .w-row.u-text-center.u-marginbottom-80
         .w-col.w-col-4
-          .fontsize-jumbo.text-success.lineheight-loose = 34800
+          .fontsize-jumbo.text-success.lineheight-loose 34,800
           /! number_to_human(statistics.total_contributors)
           p.start-stats.fontsize-base = t('pages.start.header.people')
         .w-col.w-col-4
-          .fontsize-jumbo.text-success.lineheight-loose = 100
+          .fontsize-jumbo.text-success.lineheight-loose 100
           /! number_to_human(statistics.total_projects_success)
           p.start-stats.fontsize-base = t('pages.start.header.success')
         .w-col.w-col-4
@@ -36,80 +36,16 @@
           = link_to t('pages.start.submit'), new_project_path, class: 'btn btn-medium btn-secondary'
 
 
-- if current_user && @projects_near.present?
-  .section.u-marginbottom-40
-    .w-container
-      .w-row.u-marginbottom-30
-        .w-col.w-col-10.w-col-small-6.w-col-tiny-6
-          .fontsize-large.lineheight-looser
-            = t('.near_you')
-        .w-col.w-col-2.w-col-small-6.w-col-tiny-6
-          = link_to t('.see_all'), explore_path(ref: 'home_near', anchor: "near_of/") + current_user.address_state, class: 'btn btn-small btn-terciary'
-      .w-row
-        == render_projects @projects_near, 'home_near', {wrapper_class: 'w-col w-col-4'}
-
-.section.u-marginbottom-40
+.section.u-marginbottom-0.u-paddingbottom-0
   .w-container
-    .w-row.u-marginbottom-30
-      .w-col.w-col-10.w-col-small-6.w-col-tiny-6
-        .fontsize-large.lineheight-looser
-          = t('.recommended')
-      .w-col.w-col-2.w-col-small-6.w-col-tiny-6
-        = link_to t('.see_all'), explore_path(ref: :home_recommended, anchor: :recommended), class: 'btn btn-small btn-terciary'
-    .w-row
-      == render_projects @recommends, 'home_recommended', {wrapper_class: 'w-col w-col-4'}
-
-.section.u-marginbottom-40
-  .w-container
-    .w-row.u-marginbottom-30
-      .w-col.w-col-10.w-col-small-6.w-col-tiny-6
-        .fontsize-large.lineheight-looser
-          = t('.expiring')
-      .w-col.w-col-2.w-col-small-6.w-col-tiny-6
-        = link_to t('.see_all'), explore_path(ref: :home_expiring, anchor: :expiring), class: 'btn btn-small btn-terciary'
-    .w-row
-      == render_projects @expiring, 'home_expiring', {wrapper_class: 'w-col w-col-4'}
-
-.section.u-marginbottom-40.recent-projects
-  .w-container
-    .w-row.u-marginbottom-30
-      .w-col.w-col-10.w-col-small-6.w-col-tiny-6
-        .fontsize-large.lineheight-looser
-          = t('.recents')
-      .w-col.w-col-2.w-col-small-6.w-col-tiny-6
-        = link_to t('.see_all'), explore_path(ref: :home_recent, anchor: :recent), class: 'btn btn-small btn-terciary'
-    .w-row
-      == render_projects @recent, 'home_recent', {wrapper_class: 'w-col w-col-4'}
+    .w-row.u-marginbottom-0
+      .fontsize-larger.u-text-center.u-marginbottom-70.u-margintop-40 = t('.search')
 
 
 
-#map style="height: 500px;"
+  #map style="height: 500px;"
 
-javascript:
-//  var pings = #{@pings.to_json(root: false).html_safe};
-
-  $(document).ready( function() {
-    var mapOptions = {
-      zoom: 13,
-      center: new google.maps.LatLng(37.7750, -122.4183),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map($("#map")[0], mapOptions)
-
-    for (var i in pings) {
-      var ping = pings[i];
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(ping.lat, ping.lng),
-        title: ping.created_at
-      });
-
-      // To add the marker to the map, call setMap();
-      marker.setMap(map);
-    }
-
-  })
-
-.section.section-gray-one
+.section.section-gray-one style="margin-top: 0"
   .w-container
     .u-text-center
       = link_to CatarseSettings[:blog_url], target: :blank do

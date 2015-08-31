@@ -49,7 +49,7 @@ var App = window.App = Skull.View.extend({
     Backbone.history.start({pushState: false});
     this.maskAllElements();
     this.applyErrors();
-    //this.loadGMaps();
+    this.loadGMaps();
   },
 
   flash: function() {
@@ -91,6 +91,16 @@ var App = window.App = Skull.View.extend({
   },
 
   loadGMaps: function() {
+    var pings = [{
+      'lat': 33.7950,
+      'lang':  -122.4172
+    },
+      {
+        'lat': 37.7250,
+        'lang':  -122.4125
+      },
+
+    ]
     var mapOptions = {
       zoom: 13,
       center: new google.maps.LatLng(41.9630387,-91.6635387),
