@@ -13,4 +13,8 @@ class BankCardDetail < ActiveRecord::Base
 	validates :bank_routing_number, numericality: { only_integer: true, allow_blank: true }
 	validates :checking_account_number, numericality: { only_integer: true,allow_blank: true },confirmation: true
 	validates :bank_ss_number, numericality: { only_integer: true,allow_blank: true },length: { is: 4,allow_blank: true }
+
+  # Dummy data here please delete if necessary
+  attr_accessor :first_name, :last_name, :email, :phone_number, :date_of_birth, :street_address, :locality, :region, :postal_code, :funding_email,
+                :funding_mobile_number, :funding_account_number, :funding_routing_number, :funding_verify_routing
 end

@@ -29,54 +29,59 @@
                 #receiving_banks.w-tab-pane.content.tab-content
                   .w-row
                     .w-col-12
-                      // TODO: THIS IS THE LIST
+                      // TODO: Use this template for EDIT (and ADD) RECEIVING BANK DETAILS
+                      .w-form.card.card-terciary.u-marginbottom-20
+                        .w-row
+                          .w-col-12
+                            .fontsize-base.fontweight-semibold.u-marginbottom-20 Personal Information
+                        .w-row
+                          .w-col.w-col-7.w-sub-col
+                            .w-row
+                              = bform.input :first_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :last_name, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :email, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :phone_number, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive'}
+                              = bform.input :date_of_birth, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :street_address, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
+                            .w-row
+                              = bform.input :locality, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
+                            .w-row
+                              = bform.input :region, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
+                              = bform.input :postal_code, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {class: 'w-input text-field positive '}
 
-                      .u-marginbottom-20
-                        = bform.submit value: 'Edit', class: 'btn btn-tiny btn-ib'
-                        = bform.submit value: 'Remove', class: 'btn btn-tiny btn-ib'
-                        = bform.submit value: 'Make Primary', class: 'btn btn-tiny btn-ib'
+                        .divider.u-marginbottom-20
+                        .w-row
+                          .w-col-12
+                            .fontsize-base.fontweight-semibold.u-marginbottom-20 Funding Information
+                        .w-row
+                          .w-col.w-col-7.w-sub-col
+                            .w-row
+                              = bform.input :funding_email, as: :string, label: "Email", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :funding_mobile_number, as: :string, label: "Mobile Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :funding_account_number, as: :string, label: "Account Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :funding_routing_number, as: :string, label: "Routing Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                            .w-row
+                              = bform.input :funding_verify_routing, as: :string, label: "Verify Routing Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
 
 
-                      table#receiving_banks_list.table.table-bordered.table-hover
-                        thead
-                          tr
-                            th.u-text-center {width='10%'}
-                              'Select
-                            th
-                              'Bank Account
-                            th.u-text-center {width='20%'}
-                              'Status
-                        tbody
-                          tr
-                            td.u-text-center
-                              = radio_button_tag nil, nil
+                            /Funding Information (Heading)
+                            /Email
+                            /Mobile Phone
+                            /Account Number
+                            /Routing Number
+                            /Verify Routing Number
 
-                            td
-                              p.fontweight-bold
-                                'Name of the Bank
-                                br
-                                small.fontweight-light
-                                  'XXXX-XXXX-XXXX-1234
-                            td.u-text-center
-                              p.fontweight-bold ACTIVE
-
-                          tr
-                            td.u-text-center
-                              = radio_button_tag nil, nil
-
-                            td
-                              p.fontweight-bold
-                                'Another Name
-                                br
-                                small.fontweight-light
-                                  'XXXX-XXXX-XXXX-5678
-                            td.u-text-center
-
-                    // TODO: SHOW ONLY WHEN THERE ARE NO BANKS
-                    /.w-form.u-marginbottom-20
+                    .w-form.u-marginbottom-20
                       .w-row
                         .w-col.w-col-4.w-col-offset-4
-                          = bform.submit value: 'Add Bank', class: 'btn btn-large'
+                          = bform.submit value: 'Save', class: 'btn btn-large'
 
                 #depositing_banks.content.w-tab-pane.active.tab-content
                   .w-row

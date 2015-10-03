@@ -1607,6 +1607,10 @@ textarea.w-select {
 .w-tab-pane {
   position: relative;
   display: none;
+
+  &.active {
+    display: block;
+  }
 }
 .w--tab-active {
   display: block;
