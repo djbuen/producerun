@@ -52,25 +52,10 @@ en:
         account: Account No.
         account_digit: digit account
       bank_card_detail:
-        card_holder_name: Card Holder Name
-        card_number: Card Number
-        cvv: Card CVV
-        card_expire_month: Expiration Month
-        card_expire_year: Expiration Year
-        zip_code: Zip Code
-        dwolla_email_address: Dwolla Email Address
-        paypal_email_address: Paypal Email Address
-        receiving_dwolla_email_address: Dwolla Email Address
-        receiving_paypal_email_address: Paypal Email Address
-        checking_account_number: Checking Routing Number
-        checking_account_number_confirmation: Verify Checking Routing Number        
-        account_holder: Account Holder
-        bank_dob: Date Of Birth
-        bank_ss_number: Bank SS Number
-        bank_street_address: Stree Address
-        bank_state: State
-        bank_zip: Zip
-        bank_phone_number: Phone Number
+        first_name: First Name
+        last_name: Last Name
+        email: Email Address
+        phone_number: Phone Number
       contribution:
         payer_name: Full Name
         payer_company_name: Company Name
@@ -183,26 +168,38 @@ en:
               invalid: Digit Invalid agency
         bank_card_detail:
           attributes:
-            dwolla_email_address:
-              invalid: Dwolla Email Address invalid
-            paypal_email_address:
-              invalid: Paypal Email Address invalid
-            receiving_dwolla_email_address:
-              invalid: Dwolla Email Address invalid
-            receiving_paypal_email_address:
-              invalid: Paypal Email Address invalid
-            card_number:
-              not_a_number: Card Number is not a number
-            card_cvv:
-              not_a_number: CVV is not a number
-            checking_account_number:
-              not_a_number: Account Number is not a number
-              confirmation: Account Number and Verify Account Number does not match
-            checking_account_number_confirmation:
-              not_a_number: Account Number is not a number
-              confirmation: Account Number and Verify Account Number does not match  
-            bank_ss_number:
-              wrong_length: SS Number should be %{count} characters
+            first_name:
+              blank: First Name can not be blank
+            last_name:
+              blank: Last Name can not be blank
+            email:
+              blank: Email Address can not be blank
+              invalid: Email Address is invalid
+            phone_number:
+              blank: Phone Number can not be blank
+            date_of_birth:
+              blank: Date of birth can not be blank
+            street_address:
+              blank: Street can not be blank
+            locality:
+              blank: Locality can not be blank
+            region:
+              blank: Region can not be blank
+            funding_email:
+              blank: Funding Email can not be blank
+            funding_phone_number:
+              blank: Funding Phone Number can not be blank
+            funding_account_number:
+              blank: Funding Account Number can not be blank
+              taken: Funding Account Number already exists
+            funding_routing_number:
+              blank: Funding Routing Number can not be blank
+              not_a_number: Funding Routing Number is not a number
+              confirmation: Funding Routing Number and Verify Routing Number does not match
+              taken: Funding Routing Number already exists
+            funding_routing_number_confirmation:
+              not_a_number: Funding Routing Number is not a number
+              confirmation: Funding Routing Number and Verify Routing Number does not match
         project_account:
           attributes:
             full_name:

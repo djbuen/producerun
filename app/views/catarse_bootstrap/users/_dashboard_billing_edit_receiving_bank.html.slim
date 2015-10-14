@@ -60,23 +60,15 @@
                         .w-row
                           .w-col.w-col-7.w-sub-col
                             .w-row
-                              = bform.input :funding_email, as: :string, label: "Email", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                              = bform.input :funding_email, as: :string, label: 'Email', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
                             .w-row
-                              = bform.input :funding_mobile_number, as: :string, label: "Mobile Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                              = bform.input :funding_mobile_number, as: :string, label: 'Mobile Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
                             .w-row
-                              = bform.input :funding_account_number, as: :string, label: "Account Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                              = bform.input :funding_account_number, as: :string, label: 'Account Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
                             .w-row
-                              = bform.input :funding_routing_number, as: :string, label: "Routing Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+                              = bform.input :funding_routing_number, as: :string, label: 'Routing Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
                             .w-row
-                              = bform.input :funding_verify_routing, as: :string, label: "Verify Routing Number", wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
-
-
-                            /Funding Information (Heading)
-                            /Email
-                            /Mobile Phone
-                            /Account Number
-                            /Routing Number
-                            /Verify Routing Number
+                                = bform.input :funding_verify_routing, as: :string, label: 'Verify Routing Number', wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
 
                     .w-form.u-marginbottom-20
                       .w-row

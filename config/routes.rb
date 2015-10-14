@@ -76,6 +76,8 @@ Catarse::Application.routes.draw do
     end
   end
 
+  resources :bank_card_details #,only: [:create,:update,:edit]
+
   get "/terms-of-use" => 'high_voltage/pages#show', id: 'terms_of_use'
   get "/privacy-policy" => 'high_voltage/pages#show', id: 'privacy_policy'
   get "/start" => 'high_voltage/pages#show', id: 'start'

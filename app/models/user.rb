@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   belongs_to :country
   has_one :user_total
   has_one :bank_account, dependent: :destroy
-  has_one :bank_card_detail, dependent: :destroy
+  has_many :bank_card_details, dependent: :destroy
   has_many :feeds, class_name: 'UserFeed'
   has_many :credit_cards
   has_many :project_accounts
@@ -60,16 +60,17 @@ class User < ActiveRecord::Base
   has_many :links, class_name: 'UserLink', inverse_of: :user
   has_and_belongs_to_many :recommended_projects, join_table: :recommendations, class_name: 'Project'
 
+
   accepts_nested_attributes_for :unsubscribes, allow_destroy: true rescue puts "No association found for name 'unsubscribes'. Has it been defined yet?"
   accepts_nested_attributes_for :links, allow_destroy: true, reject_if: ->(x) { x['link'].blank? }
   accepts_nested_attributes_for :bank_account, allow_destroy: true, reject_if: -> (attr) { attr[:bank_id].blank? }
-  accepts_nested_attributes_for :bank_card_detail, allow_destroy: true
+  accepts_nested_attributes_for :bank_card_details, allow_destroy: true
   accepts_nested_attributes_for :category_followers, allow_destroy: true
 
-  scope :with_permalink, -> { where("users.permalink is not null") }
+  scope :with_permalink, -> { where('users.permalink is not null') }
   scope :active, ->{ where('deactivated_at IS NULL') }
   scope :with_user_totals, -> {
-    joins("LEFT OUTER JOIN user_totals on user_totals.user_id = users.id")
+    joins('LEFT OUTER JOIN user_totals on user_totals.user_id = users.id')
   }
 
   scope :who_contributed_project, ->(project_id) {

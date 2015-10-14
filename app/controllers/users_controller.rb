@@ -54,6 +54,7 @@ class UsersController < ApplicationController
     authorize resource
     @unsubscribes = @user.project_unsubscribes
     @subscribed_to_posts = @user.posts_subscription
+    @bank_card_detail = BankCardDetail.new(:user => @user)
     resource.links.build
     build_bank_account
     build_bank_card_detail
@@ -65,7 +66,8 @@ class UsersController < ApplicationController
     if update_user
       flash[:notice] = t('users.current_user_fields.updated')
       redirect_to edit_user_path(@user, anchor: params[:anchor])
-    else      
+    else
+      build_bank_card_detail
       render :edit
     end
   end
@@ -136,7 +138,8 @@ class UsersController < ApplicationController
   end
 
   def build_bank_card_detail
-    @user.build_bank_card_detail unless @user.bank_card_detail
+    # @user.build_bank_card_details unless @user.bank_card_details
+    # @bank_card_details = @user.bank_card_details
   end
 
   def permitted_params

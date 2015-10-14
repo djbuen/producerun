@@ -22,8 +22,8 @@
 //= require ./lib/jquery.sticky.js
 //= require ./lib/jquery.smooth-scroll.js
 //= require ./lib/auto_campaign_url.js
+//= require ./lib/jquery.center.min.js
+//= require ./lib/jquery.msg.js
 //= require cocoon
 //= require_tree ./lib
 //= require_tree ./app
-
-
