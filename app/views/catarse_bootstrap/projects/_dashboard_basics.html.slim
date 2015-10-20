@@ -75,7 +75,19 @@
                 validation_text: false,
                 append_text_wrapper_html: { class: 'w-col w-col-2 w-col-small-2 w-col-tiny-2 text-field postfix no-hover' },
                 append_input_text: 'Days',
-                append_input_text_wrapper_html: { class: 'fontsize-base lineheight-tightest' }       
+                append_input_text_wrapper_html: { class: 'fontsize-base lineheight-tightest' }
+
+              .card.card-terciary
+                = form.association :bank_card_detail, as: :select,
+                  collection: @user.bank_card_details.active.collect { |c| ["#{c.full_name} - #{c.show_mask_account_number}", c.id] },
+                  prompt: 'Select Account',
+                  wrapper: :one_col,
+                  wrapper_class: '',
+                  label_wrapper_html: {class: 'w-col w-col-12'},
+                  text_field_wrapper_html: {class: 'w-col w-col-12'},
+                  input_html: {class: 'positive', required: false, rows: 6},
+                  validation_text: false,
+                  label: 'Receiving Bank Name'
 
         .w-col.w-col-4.w-hidden-small.w-hidden-tiny
           a.w-inline-block.card.u-radius.card-guide href="http://beta.catarse.me/guides#goals" target="_blank"

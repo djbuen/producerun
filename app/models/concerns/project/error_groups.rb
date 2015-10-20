@@ -3,7 +3,7 @@ module Project::ErrorGroups
 
   included do
     ATTR_GROUPS = {
-      basics: [:name, :permalink, :category_id, :goal, :online_days],
+      basics: [:name, :permalink, :category_id, :goal, :online_days,:bank_card_detail],
       project: [ :video_url, :about, :budget, :uploaded_image, :headline],
       reward: [:'rewards.size'],
       user_about: [:'user.uploaded_image', :'user.name', :'user.bio'],

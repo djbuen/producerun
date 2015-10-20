@@ -96,6 +96,7 @@ en:
         user_id: User ID
         video_url: Video URL
         permalink: Link your campaign
+        bank_card_detail: Receving Bank Name
         more_links: Tell links for people to know more about your campaign and its
           history.
         traffic_sources: How did you meet ProduceRun?
@@ -279,6 +280,8 @@ en:
               taken: This campaign URL already exists
             category:
               blank: You must choose a category for your campaign
+            bank_card_detail:
+              blank: You must choose a Bank Name for your campaign
             goal:
               blank: The value of the goal can not be blank
               greater_than: The goal must be greater than 9

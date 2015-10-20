@@ -16,7 +16,7 @@
             = render 'devise/shared/alert'
             = form.input_field :referal_link, as: :hidden, value: referal_link
             = form.input_field :value, value: @contribution.value, as: :hidden
-            = form.input_field :value, value: params[:reward_id], as: :hidden
+            /= form.input_field :value, value: params[:reward_id], as: :hidden
 
             = form.input :reward_id, as: :radio_buttons, collection: @rewards,
                          input_html: {class: 'w-radio-input back-reward-radio-button'},

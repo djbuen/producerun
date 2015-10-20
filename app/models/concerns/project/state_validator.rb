@@ -8,11 +8,11 @@ class Project::StateValidator < ActiveModel::Validator
   def online
     in_analysis
     approved
-    %w(full_name email cpf address_street address_number address_city address_state address_zip_code phone_number bank_routing_number checking_account_number checking_account_number_confirmation account_holder bank_dob bank_ss_number street_address state zip_code bank_phone_number).each do |attribute|
-      validate_presence_of_nested_attribute(account, attribute)
-    end
+    # %w(full_name email cpf address_street address_number address_city address_state address_zip_code phone_number bank_routing_number checking_account_number checking_account_number_confirmation account_holder bank_dob bank_ss_number street_address state zip_code bank_phone_number).each do |attribute|
+    #   validate_presence_of_nested_attribute(account, attribute)
+    # end
 
-    validate_same_value_of(account, :checking_account_number, :checking_account_number_confirmation)
+    # validate_same_value_of(account, :checking_account_number, :checking_account_number_confirmation)
   end
 
   def approved
@@ -22,7 +22,7 @@ class Project::StateValidator < ActiveModel::Validator
   end
 
   def in_analysis
-    @record.errors.add_on_blank([:about, :headline, :goal, :online_days, :uploaded_image, :budget])
+    @record.errors.add_on_blank([:about, :headline, :goal,:bank_card_detail, :online_days, :uploaded_image, :budget])
     %w(name about).each do |attribute|
       validate_presence_of_nested_attribute(user, attribute)
     end

@@ -76,10 +76,14 @@ class Projects::ContributionsController < ApplicationController
   def braintree_payment
     @contribution = Contribution.find(params[:id])
     @valid_payment = false
+
     if @contribution
       @contribution.attributes =params[:contribution]
+      project = @contribution.project
+      bank_card_detail = project.bank_card_detail
       result = Braintree::Transaction.sale(
-          :merchant_account_id => ENV['braintree_sub_merchant_id'],
+          # :merchant_account_id => ENV['braintree_sub_merchant_id'],
+          :merchant_account_id => bank_card_detail.remote_id,
           :amount => @contribution.value.to_f,
           :credit_card => {
               :number => @contribution.card_number,

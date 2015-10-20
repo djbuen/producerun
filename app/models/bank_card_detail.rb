@@ -26,7 +26,7 @@ class BankCardDetail < ActiveRecord::Base
 	validates :funding_account_number,presence: true,uniqueness: true, numericality: { only_integer: true, allow_blank: true }
 	validates :funding_routing_number,presence: true,uniqueness: true, numericality: { only_integer: true, allow_blank: true },confirmation: true
 
-
+	scope :active, -> { where('status = ?',STATUSES[:active]) }
 
 	# validates :card_number, numericality: { only_integer: true, allow_blank: true }
 	# validates :card_cvv, numericality: { only_integer: true,allow_blank: true }
@@ -95,16 +95,10 @@ private
 		response_obj = create_update_sub_merchant(api_params)
 
 		if response_obj.success?
-			p '*' * 100
-			p "Status: #{response_obj.merchant_account.status}"
-
 			braintree_id = response_obj.merchant_account.id
 			self.remote_id = braintree_id if self.remote_id.nil?
 
 			merchant_account = Braintree::MerchantAccount.find(braintree_id)
-
-			p '*' * 100
-			p "Latest Status: #{merchant_account.status}"
 
 			self.status = STATUSES[merchant_account.status.to_sym]
 			return true

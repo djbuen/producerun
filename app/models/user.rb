@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   # :validatable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :omniauthable
+    :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
   before_save -> {self.about = about.gsub(/^[^\S\n]+/, "") if about.present? }
 
