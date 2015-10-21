@@ -15,7 +15,7 @@ module BraintreePayment
         :business => options[:business] || {},
         :funding => options[:funding] || {},
         :tos_accepted => true,
-        :master_merchant_account_id => ENV['merchant_id']
+        :master_merchant_account_id => ENV['master_merchant_account_id']
       )
     end
     return result
