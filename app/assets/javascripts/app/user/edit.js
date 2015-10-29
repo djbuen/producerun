@@ -24,7 +24,8 @@ App.addChild('UserEdit', _.extend({
     this.ajax_start_stop();
 
     $('.receiving_bank_details').hide();
-    $('#receiving_banks_list').show()
+    $('#receiving_banks_list').show();
+    $('#receiving_banks').show();
   },
 
   toggleNotifications: function(){

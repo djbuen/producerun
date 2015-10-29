@@ -27,7 +27,8 @@
             .w-row
               = bform.input :locality, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
             .w-row
-              = bform.input :region, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
+              /= bform.input :region, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
+              = bform.input :region,:collection => us_states, :label => 'Region' ,:include_blank => false, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12 w-sub-col'}, input_html: {class: 'w-input text-field positive '}
               = bform.input :postal_code, as: :string, wrapper_html: {class: 'w-col w-col-6 w-col-tiny-12'}, input_html: {class: 'w-input text-field positive '}
 
         .divider.u-marginbottom-20
