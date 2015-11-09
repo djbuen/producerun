@@ -201,6 +201,10 @@ en:
             funding_routing_number_confirmation:
               not_a_number: Funding Routing Number is not a number
               confirmation: Funding Routing Number and Verify Routing Number does not match
+            bank_ss_number:
+              not_a_number: SSN is not a number
+              blank: SSN can not be blank
+              wrong_length: SSN should be %{count} characters
         project_account:
           attributes:
             full_name:

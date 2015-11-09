@@ -16,6 +16,7 @@ class BankCardDetail < ActiveRecord::Base
 	validates_format_of :email, with: Devise.email_regexp, allow_blank: true
 	validates :phone_number,presence: true
 	validates :date_of_birth,presence: true
+	validates :bank_ss_number, numericality: { only_integer: true,allow_blank: true },length: { is: 9,allow_blank: true },presence: true
 	validates :street_address,presence: true
 	validates :locality,presence: true
 	validates :region,presence: true
@@ -38,7 +39,7 @@ class BankCardDetail < ActiveRecord::Base
 	# validates :bank_routing_number, numericality: { only_integer: true, allow_blank: true }
 	# validates :checking_account_number, numericality: { only_integer: true,allow_blank: true },confirmation: true
 	# validates :bank_ss_number, numericality: { only_integer: true,allow_blank: true },length: { is: 4,allow_blank: true }
-
+	# validates_length_of :bank_ss_number, :is => 9, numericality: { only_integer: true,allow_blank: true }
   # Dummy data here please delete if necessary
   # attr_accessor :first_name, :last_name, :email, :phone_number, :date_of_birth, :street_address, :locality, :region, :postal_code, :funding_email,
   #               :funding_mobile_number, :funding_account_number, :funding_routing_number, :funding_verify_routing
@@ -75,7 +76,7 @@ private
 			:email => self.email,
 			:phone => self.phone_number,
 			:date_of_birth => self.date_of_birth,
-			# :ssn => "456-45-4567",
+			:ssn => self.bank_ss_number,
 			:address => {
 				:street_address => self.street_address,
 				:locality => self.locality,

@@ -26,6 +26,6 @@ class BankCardDetailsController < ApplicationController
 private
 
   def bank_card_details_params
-    params.require(:bank_card_detail).permit(:first_name, :last_name, :email, :phone_number, :date_of_birth, :street_address,:locality,:region,:postal_code,:funding_email,:funding_phone_number,:funding_account_number,:funding_routing_number,:funding_routing_number_confirmation)
+    params.require(:bank_card_detail).permit(:first_name, :last_name, :email, :phone_number, :date_of_birth, :street_address,:locality,:region,:postal_code,:funding_email,:funding_phone_number,:funding_account_number,:funding_routing_number,:funding_routing_number_confirmation, :bank_ss_number)
   end
 end
