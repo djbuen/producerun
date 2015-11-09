@@ -23,7 +23,7 @@
               /= bform.date_select :date_of_birth, {order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}}, class: 'w-input text-field positive', style: 'width:30%;display:inline;'
               = bform.input :date_of_birth, as: :date, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-col w-col-12 w-input text-field positive', style: 'width:32%;display:inline;'},order: [:month, :day, :year], use_month_numbers: true, start_year: Date.today.year-100, end_year: Date.today.year, prompt: {day: 'DD', month: 'MM', year: 'YY'}
             .w-row
-              = bform.input :bank_ss_number, :label => 'SS Number', as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
+              = bform.input :bank_ss_number, :label => 'SSN', as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive'}
             .w-row
               = bform.input :street_address, as: :string, wrapper_html: {class: 'w-col w-col-12'}, input_html: {class: 'w-input text-field positive '}
             .w-row
