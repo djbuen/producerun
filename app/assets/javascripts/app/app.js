@@ -49,6 +49,7 @@ var App = window.App = Skull.View.extend({
     Backbone.history.start({pushState: false});
     this.maskAllElements();
     this.applyErrors();
+
     this.loadGMaps();
   },
 
@@ -81,7 +82,6 @@ var App = window.App = Skull.View.extend({
 
   toggleMenu: function(){
     this.$dropdown.toggleClass('w--open');
-    console.log('clicked')
     return false;
   },
 
@@ -92,33 +92,35 @@ var App = window.App = Skull.View.extend({
   },
 
   loadGMaps: function() {
-    var pings = [{
-      'lat': 33.7950,
-      'lang':  -122.4172
-    },
-      {
-        'lat': 37.7250,
-        'lang':  -122.4125
+    if ($("#map").length) {
+      var pings = [{
+        'lat': 33.7950,
+        'lang':  -122.4172
       },
+        {
+          'lat': 37.7250,
+          'lang':  -122.4125
+        },
 
-    ]
-    var mapOptions = {
-      zoom: 13,
-      center: new google.maps.LatLng(41.9630387,-91.6635387),
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      scrollwheel: false
-    };
-    var map = new google.maps.Map($("#map")[0], mapOptions)
+      ]
+      var mapOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(41.9630387,-91.6635387),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false
+      };
+      var map = new google.maps.Map($("#map")[0], mapOptions)
 
-    for (var i in pings) {
-      var ping = pings[i];
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(ping.lat, ping.lng),
-        title: ping.created_at
-      });
+      for (var i in pings) {
+        var ping = pings[i];
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(ping.lat, ping.lng),
+          title: ping.created_at
+        });
 
-      // To add the marker to the map, call setMap();
-      marker.setMap(map);
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+      }
     }
   }
 });
