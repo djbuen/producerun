@@ -81,6 +81,7 @@ var App = window.App = Skull.View.extend({
 
   toggleMenu: function(){
     this.$dropdown.toggleClass('w--open');
+    console.log('clicked')
     return false;
   },
 
@@ -111,7 +112,6 @@ var App = window.App = Skull.View.extend({
 
     for (var i in pings) {
       var ping = pings[i];
-      console.log(ping.lat + " - " + ping.lng);
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(ping.lat, ping.lng),
         title: ping.created_at
