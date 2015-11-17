@@ -93,6 +93,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
     auto_html (1.6.4)
@@ -650,6 +652,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   activemerchant (= 1.44.1)
+  acts-as-taggable-on
   auto_html
   best_in_place!
   better_errors
@@ -737,4 +740,4 @@ DEPENDENCIES
   yml_gtranslate!
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
