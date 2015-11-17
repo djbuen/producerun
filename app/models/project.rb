@@ -50,7 +50,7 @@ class Project < ActiveRecord::Base
       }
     },
     associated_against: {
-      user: ['about', 'full_name' ],
+      user: ['about', 'full_name', 'address_state', 'address_city' ],
       category: ['name_en']
     },
     ignoring: :accents
