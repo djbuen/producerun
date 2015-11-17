@@ -45,9 +45,13 @@ class Project < ActiveRecord::Base
     against: "full_text_index",
     using: {
       tsearch: {
-        dictionary: "portuguese",
+        dictionary: "english",
         tsvector_column: "full_text_index"
       }
+    },
+    associated_against: {
+      user: ['about', 'full_name' ],
+      category: ['name_en']
     },
     ignoring: :accents
 
