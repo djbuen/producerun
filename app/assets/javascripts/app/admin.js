@@ -3,6 +3,7 @@ App.addChild('Admin', {
 
   events: {
     'click .project-admin-menu' : "toggleAdminMenu",
+    'click .toggle-filters': 'toggleFilters',
   },
 
   toggleAdminMenu: function(event){
@@ -12,5 +13,17 @@ App.addChild('Admin', {
     this.$dropdown.toggleClass('w--open');
     return false;
   },
-});
 
+  toggleFilters: function(event) {
+    var btn = $(event.target);
+    btn.toggleClass('more');
+    console.log(btn.data('more'))
+    if (btn.text() == btn.data('more')) {
+      btn.text(btn.data('less'));
+    } else {
+      btn.text(btn.data('more'));
+    }
+    $('.more-filters').slideToggle();
+    event.preventDefault();
+  }
+});

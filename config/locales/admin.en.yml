@@ -3,6 +3,8 @@ en:
   admin:
     filter:
       title: Filters
+      more: More Filters
+      less: Less Filters
     confirm_dialog: Are you sure?
     financials:
       index:
@@ -42,7 +44,7 @@ en:
       index:
         with_state: by state
         by_category: by category
-        project: campaign
+        project: Campaign
         user: User
         between_created_at: created between
         goal_between: meta between
@@ -52,28 +54,28 @@ en:
         by_user_email: Email the farmer
         id: ID
         name: Title
-        send_to_trash: delete
-        send_to_draft: Send to DRAFT !
+        send_to_trash: Delete
+        send_to_draft: Send to draft
         reject: Reject!
-        approve: Approve !
+        approve: Approve
         user_id: User ID
-        goal: where
+        goal: Where
         total_contributions: supports
         online_date: Published Online
         pledged: Goal reached
-        recommended: Recommended ?
-        state: state
+        recommended: Recommended
+        state: State
         no_projects: No campaigns found
         menu: Admin campaigns
         title: Campaign management
         total_projects: campaigns
-        submit: filter
+        submit: Filter
         expires_at: Finishes on
         category: category
         order_table: Sort table
         order_date: Date of dispatch
-        order_asc: minor goal
-        order_desc: highest goal
+        order_asc: Minor goal
+        order_desc: Highest goal
         order_created_at: Date of dispatch
         last_modification: Last updated
     actions:
@@ -192,6 +194,16 @@ en:
       charts:
         current_period: Last 8 without .
         last_year: previous year
+    table:
+      name: Campaign Name
+      category: Category
+      recommended: Recommended
+      supporters: Supporters
+      state: Status
+      send_to_draft: Send to draft
+      send_to_trash: Delete Campaign
+      approve: Approve
+      reject: Decline
   channels:
     admin:
       filter:
