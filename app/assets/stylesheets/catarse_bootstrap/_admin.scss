@@ -43,6 +43,10 @@
     font-weight: normal;
     margin-bottom: 0;
   }
+
+  .no-label {
+    margin-top: 20px;
+  }
 }
 
 .more-filters {
@@ -74,7 +78,6 @@
 }
 
 .btn--filter {
-  margin-top: 22px;
   padding: 8px;
   &:before {
     font-family: "FontAwesome";

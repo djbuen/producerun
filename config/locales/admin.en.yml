@@ -41,6 +41,7 @@ en:
           phone_number: phone
           permalink: Permalink design
     projects:
+      title: Campaigns
       index:
         with_state: by state
         by_category: by category
@@ -100,6 +101,8 @@ en:
         payer_email: Email payment
         provider: provider
     contributions:
+      title: Contributions
+
       messages:
         successful:
           confirm: Successfully confirmed support!
@@ -112,9 +115,9 @@ en:
       show:
         contribution_info: Contribution of information %{key}
         payment_id: ID of payment
-        payment_method: Method of payment
+        payment_method: Method of Payment
         payment_fee: Rate of means of payment
-        successful: successful
+        successful: Successful
         payment_choice: Payment Option
         payer_email: Email means of payment used in
         user_email: Email used in ProduceRun
@@ -125,11 +128,11 @@ en:
           normal_email: Email the ProduceRun
           payment_id: Payment ID
           acquirer_tid: TID Operator
-          payment_method: Method of payment
+          payment_method: Method of Payment
           payment_choice: Payment Option
           acquirer_name: Card company
-          installments: plots
-          created_at: started in
+          installments: Plots
+          created_at: Started In
         placeholders:
           project: Permalink or campaign name
           acquirer: Card company name
@@ -140,40 +143,40 @@ en:
         project_state: State campaign
         send_refund_request_contribution: Send refund request
         payer_email: Email the means of payment
-        payment_id: Id de Payment
+        payment_id: Payment ID
         user_email: Email used in ProduceRun
-        push_to_trash: delete support
-        cancel: Cancel support
-        between_values: values ​​between
-        by_state: state
+        push_to_trash: Delete Support
+        cancel: Cancel Support
+        between_values: Values Between
+        by_state: State
         refund_and_hide: Reversal and do not display support.
         pending_to_refund: chargebacks pending
         confirm_contribution: confirm support
         unconfirm_contribution: disconfirm support
         refund_contribution: Reverse support
         request_refund: To request direct reimbursement
-        title: Support management
-        state: state
-        menu: supports
-        anonymous: Anonymous ?
-        contribution: support
-        confirmed: Confirmed ?
-        credits_html: Used credits ?
-        id: Id
-        key: key
+        title: Support Management
+        state: Status
+        menu: Supports
+        anonymous: Anonymous?
+        contribution: Support
+        confirmed: Confirmed?
+        credits_html: Used Credits?
+        id: ID
+        key: Key
         no_contributions: No supporter found.
-        project: campaign
+        project: Campaign
         refunded: Reversal done ?
-        requested_refund: Asked reversal ?
-        reward: reward
-        no_reward: unrewarded
-        submit: research
-        total_contributed: collected
-        total_contributions: supporters
-        total_contribution: support
-        total_users: users
+        requested_refund: Asked Reversal?
+        reward: Reward
+        no_reward: Unrewarded
+        submit: Research
+        total_contributed: Collected
+        total_contributions: Supporters
+        total_contribution: Support
+        total_users: Users
         user: User
-        value: value
+        value: Value
     statistics:
       index:
         menu: statistics
@@ -315,7 +318,7 @@ en:
         show:
           contribution_info: Contribution Information %{key}
           payment_id: ID of payment
-          payment_method: Method of payment
+          payment_method: Method of Payment
           payment_fee: Rate of means of payment
           successful: successful
           payment_choice: Payment Option
@@ -328,7 +331,7 @@ en:
             normal_email: Email the ProduceRun
             payment_id: Payment ID
             acquirer_tid: TID Operator
-            payment_method: Method of payment
+            payment_method: Method of Payment
             payment_choice: Payment Option
             acquirer_name: Card company
             installments: plots
