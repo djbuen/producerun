@@ -17,7 +17,6 @@ App.addChild('Admin', {
   toggleFilters: function(event) {
     var btn = $(event.target);
     btn.toggleClass('more');
-    console.log(btn.data('more'))
     if (btn.text() == btn.data('more')) {
       btn.text(btn.data('less'));
     } else {
