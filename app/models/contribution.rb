@@ -1,6 +1,20 @@
 # coding: utf-8
 class Contribution < ActiveRecord::Base
   has_notifications
+  
+  STATUSES = {
+    :submitted_for_settlement=> 0,
+    :settling => 1,
+    :settled => 2,
+    :settlement_pending => 3,
+    :settlement_declined => 4,
+    :pending => 5,
+    :voided => 6,
+    :failed => 7,
+    :gateway_rejected => 8,
+    :processor_declined => 9,
+    :authorization_expired => 10
+  }
 
   include I18n::Alchemy
   include PgSearch
@@ -81,6 +95,10 @@ class Contribution < ActiveRecord::Base
 
   def can_refund?
     confirmed? && project.failed?
+  end
+
+  def escrow_status_released?
+    self.escrow_status == "released"
   end
 
   def invalid_refund

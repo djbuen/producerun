@@ -139,6 +139,23 @@
                         span.fa.fa-trash-o
                         | &nbsp;&nbsp;
                         = t('admin.table.send_to_trash')
+                  - if project.successful?
+                    li
+                      = link_to send_to_release_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_release')
+                    li
+                      = link_to send_to_refund_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_refund')
+                  - if project.failed?
+                    li
+                      = link_to send_to_refund_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do
+                        span.fa.fa-file-text-o
+                        | &nbsp;&nbsp;
+                        = t('admin.table.send_to_refund')
 
 
   = paginate @projects

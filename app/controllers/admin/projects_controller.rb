@@ -8,11 +8,21 @@ class Admin::ProjectsController < Admin::BaseController
     @total_projects = Project.count(:all)
   end
 
-  [:approve, :reject, :push_to_draft, :push_to_trash, :push_to_online].each do |name|
+  [:approve, :reject, :push_to_draft, :push_to_trash, :push_to_online, :send_to_release, :send_to_refund ].each do |name|
     define_method name do
-      @project = Project.find params[:id]
-      @project.send("#{name.to_s}!")
-      redirect_to :back
+      if params[:action] == "send_to_release"
+        @project = Project.find(params[:id])
+        @project.push_to_processing_for_releasing
+        redirect_to :back and return
+      elsif params[:action] == "send_to_refund"
+          project = Project.find(params[:id])
+          project.push_to_processing_for_refund
+          redirect_to :back and return
+      else
+        @project = Project.find params[:id]
+        @project.send("#{name.to_s}!")
+        redirect_to :back and return
+        end
     end
   end
 

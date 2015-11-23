@@ -56,6 +56,8 @@ en:
         id: ID
         name: Title
         send_to_trash: Delete
+        send_to_release: Release
+        send_to_refund: Refund
         send_to_draft: Send to draft
         reject: Reject!
         approve: Approve
@@ -204,6 +206,8 @@ en:
       supporters: Supporters
       state: Status
       send_to_draft: Send to draft
+      send_to_release: Send to Release
+      send_to_refund: Send to Refund
       send_to_trash: Delete Campaign
       approve: Approve
       reject: Decline

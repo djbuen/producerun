@@ -112,6 +112,8 @@ Catarse::Application.routes.draw do
         put 'reject'
         put 'push_to_draft'
         put 'push_to_trash'
+        put 'send_to_release'
+        put 'send_to_refund'
       end
     end
 

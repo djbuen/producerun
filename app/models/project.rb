@@ -249,6 +249,11 @@ class Project < ActiveRecord::Base
     end
   end
 
+  # add Method for titleize the state of project
+  def show_state
+    return self.state.titleize
+  end
+
   private
   def self.between_dates(attribute, starts_at, ends_at)
     return all unless starts_at.present? && ends_at.present?

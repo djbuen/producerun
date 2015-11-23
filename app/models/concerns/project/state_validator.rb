@@ -36,6 +36,9 @@ class Project::StateValidator < ActiveModel::Validator
   def waiting_funds; end
   def failed; end
   def deleted; end
+  def processing_for_releasing; end
+  def completed; end
+  def processing_for_refund; end
 
   def user
     @record.user

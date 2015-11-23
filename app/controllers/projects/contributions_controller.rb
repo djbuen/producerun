@@ -103,6 +103,8 @@ class Projects::ContributionsController < ApplicationController
       @valid_payment = true
       @contribution.payment_method = 'Braintree'
       @contribution.payment_id = result.transaction.id
+      @contribution.escrow_status = Braintree::Transaction.find(@contribution.payment_id).escrow_status
+      @contribution.braintree_status= Contribution::STATUSES[result.transaction.status.to_sym]
       @contribution.save
       @contribution.confirm!
       flash[:notice] = t('projects.contributions.checkout.success')

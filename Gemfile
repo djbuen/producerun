@@ -80,11 +80,9 @@ gem 'mail_form'
 gem "auto_html"
 gem "RedCloth"
 gem 'kaminari'
-
 # Uploads
 gem 'carrierwave', '~> 0.10.0'
-gem 'rmagick', :require => 'RMagick'
-
+gem 'rmagick', :require => 'rmagick'
 # Other Tools
 gem 'to_xls'
 gem 'ranked-model'
@@ -125,7 +123,7 @@ group :production do
 
   # Monitoring with the new new relic
   gem 'newrelic_rpm'
-
+  # gem 'nokogiri', '1.5.9'
   # Using dalli and memcachier have not presented significative performance gains
   # Probably this is due to our pattern of cache usage
   # + the lack of concurrent procs in our deploy
@@ -142,7 +140,7 @@ group :development do
   # gem 'rack-mini-profiler'
   # gem 'ruby-prof'
   gem 'quiet_assets'
-  gem 'yml_gtranslate', git: 'git@github.com:kulakajak/yml_gtranslate.git'
+  gem 'yml_gtranslate'
 end
 
 group :test, :development do

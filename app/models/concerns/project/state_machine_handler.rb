@@ -13,6 +13,9 @@ module Project::StateMachineHandler
       state :failed, value: 'failed'
       state :deleted, value: 'deleted'
       state :in_analysis, value: 'in_analysis'
+      state :processing_for_releasing, value: 'processing_for_releasing'
+      state :completed, value: 'completed'
+      state :processing_for_refund, value: 'processing_for_refund'
 
       event :push_to_draft do
         transition all => :draft #NOTE: when use 'all' we can't use new hash style ;(
@@ -38,6 +41,14 @@ module Project::StateMachineHandler
         transition approved: :online
       end
 
+      event :push_to_processing_for_releasing do
+        transition successful: :processing_for_releasing
+      end
+
+      event :push_to_processing_for_refund do
+        transition [:successful, :failed] => :processing_for_refund
+      end
+
       event :finish do
         transition online: :failed,             if: ->(project) {
           project.should_fail? && !project.in_time_to_wait?
@@ -58,7 +69,11 @@ module Project::StateMachineHandler
         transition waiting_funds: :failed,      if: ->(project) {
           project.should_fail?
         }
-
+        ## Start add transition for processing to completed ##
+        transition processing_for_releasing: :completed,      if: ->(project) {
+          project.processing_for_releasing?
+        }
+        ## End add transition for processing to completed ##
       end
 
       after_transition do |project, transition|
