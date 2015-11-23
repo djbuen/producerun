@@ -1,6 +1,6 @@
 namespace :cron do
   desc "Tasks that should run hourly"
-  task hourly: [:finish_projects, :cancel_expired_waiting_confirmation_contributions]
+  task hourly: [:finish_projects, :cancel_expired_waiting_confirmation_contributions, :release_transations, :refund_transations]
 
   desc "Tasks that should run daily"
   task daily: [:update_payment_service_fee, :notify_project_owner_about_new_confirmed_contributions, :move_pending_contributions_to_trash, :deliver_projects_of_week]
