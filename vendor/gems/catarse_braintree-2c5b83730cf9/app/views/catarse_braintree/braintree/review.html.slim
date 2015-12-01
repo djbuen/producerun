@@ -8,7 +8,7 @@
         = form.input :card_name, as: :string, wrapper_html: {class: 'w-col w-col-12'},label: 'Name on the Card', input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
       .w-row
         = form.input :card_number, as: :string, wrapper_html: {class: 'w-col w-col-8 w-sub-col'}, input_html: {required: true, class: 'w-input text-field'}, validation_text: true, required: true
-        = form.input :card_cvv, as: :password, wrapper_html: {class: 'w-col w-col-4'}, input_html: {required: true, class: 'w-input text-field',maxLength: 3}, validation_text: true, required: true
+        = form.input :card_cvv, as: :password, wrapper_html: {class: 'w-col w-col-4'}, input_html: {required: true, class: 'w-input text-field',maxLength: 4}, validation_text: true, required: true
 
       .w-row
         .w-col.w-col-8.w-sub-col
