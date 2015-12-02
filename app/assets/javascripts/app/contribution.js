@@ -13,6 +13,9 @@ App.addChild('Contribution', {
   },
 
   updateTotalText: function(amount) {
+     if (isNaN(amount)){
+          amount = 0
+     }
     if (amount>9999) {
       var tAmount = this.abbreviateAmt(amount.toFixed(2),2);
       this.$value_text.text(tAmount);
