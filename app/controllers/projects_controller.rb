@@ -17,6 +17,8 @@ class ProjectsController < ApplicationController
       format.html do
         return render_index_for_xhr_request if request.xhr?
         projects_for_home
+
+        @farmers = User.near('Cedar Rapids IA 52401', 1000)
       end
     end
   end
@@ -94,6 +96,10 @@ class ProjectsController < ApplicationController
 
   def about_mobile
     resource
+  end
+
+  def get_farmers
+    @farmers = User.near('Cedar Rapids, IA, 54201')
   end
 
   protected

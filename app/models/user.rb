@@ -119,6 +119,13 @@ class User < ActiveRecord::Base
   }
   scope :order_by, ->(sort_field){ order(sort_field) }
 
+  geocoded_by :full_address
+  after_validation :geocode, :if => lambda{ |obj| obj.address_number_changed? && obj.address_street_changed? && obj.address_city_changed? && obj.address_state_changed? && obj.address_zip_code_changed? }
+
+  def full_address
+    [address_number, address_street, address_city, address_state, address_zip_code].join(', ')
+  end
+
   def self.find_active!(id)
     self.active.where(id: id).first!
   end

@@ -88,9 +88,9 @@ Catarse::Application.routes.draw do
 
 
   # User permalink profile
-  constraints SubdomainConstraint do
-    get "/", to: 'users#show'
-  end
+  # constraints SubdomainConstraint do
+  #   get "/", to: 'users#show'
+  # end
 
   # Root path should be after channel constraints
   root to: 'projects#index'

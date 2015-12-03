@@ -1,70 +1,40 @@
-//App.addChild('ProjectIndex', {
-//
-//  el: "body[data-action='index'][data-controller-name='projects']",
-//
-//  map: undefined,
-//  infowindow: undefined,
-//  service: undefined,
-//
-//  activate: function() {
-//    this.initMap();
-//  },
-//
-//  initMap: function() {
-//    this.map = new google.maps.Map(document.getElementById('map'), {
-//      center: {lat: 41.9788161, lng: -91.6735274},
-//      zoom: 11,
-//      scrollwheel: false
-//    });
-//
-//    console.log(this.map.getBounds())
-//
-//
-//    this.infowindow = new google.maps.InfoWindow();
-//    this.service = new google.maps.places.PlacesService(this.map);
-//
-//    // The idle event is a debounced event, so we can query & listen without
-//    // throwing too many requests at the server.
-//    this.map.addListener('idle', this.performSearch());
-//  },
-//
-//  performSearch: function() {
-//    var request = {
-//      bounds: this.map.getBounds(),
-//      keyword: 'best view'
-//    };
-//    this.service.radarSearch(request, function(results, status) {
-//      if (status !== google.maps.places.PlacesServiceStatus.OK) {
-//        console.error(status);
-//        return;
-//      }
-//      for (var i = 0, result; result = results[i]; i++) {
-//        this.addMarker(result);
-//      }
-//    });
-//
-//  },
-//
-//  addMarker: function(place) {
-//    var marker = new google.maps.Marker({
-//      map: this.map,
-//      position: place.geometry.location,
-//      icon: {
-//        url: 'https://www.producerun.com/assets/favicon-3e8d339476885bdebd638db72b9b7cbe.ico',
-//        anchor: new google.maps.Point(10, 10),
-//        scaledSize: new google.maps.Size(10, 17)
-//      }
-//    });
-//
-//    google.maps.event.addListener(marker, 'click', function () {
-//      this.service.getDetails(place, function (result, status) {
-//        if (status !== google.maps.places.PlacesServiceStatus.OK) {
-//          console.error(status);
-//          return;
-//        }
-//        this.infoWindow.setContent(result.name);
-//        this.infoWindow.open(map, marker);
-//      });
-//    });
-//  }
-//});
+App.addChild('ProjectIndex', {
+
+  el: "body[data-action='index'][data-controller-name='projects']",
+
+  map: undefined,
+
+  activate: function() {
+    this.initMap();
+  },
+
+  initMap: function() {
+
+    var farmers = JSON.parse("[" + $("#farmer_locations").text() + "]");
+    var infowindow = new google.maps.InfoWindow;
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 41.9788161, lng: -91.6735274},
+      zoom: 12,
+      scrollwheel: false
+    });
+
+    $.each(farmers, function(i,farmer){
+      var marker = new google.maps.Marker({
+        map: map,
+        position: { lat: farmer.lat, lng: farmer.lng},
+        icon: {
+          url: "<%= asset_url('gmap-pin.png') %>",
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(50, 57)
+        }
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(farmer.name);
+        infowindow.open(map, marker);
+      });
+    });
+
+  }
+});
