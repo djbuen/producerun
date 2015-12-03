@@ -1,11 +1,11 @@
 # ProduceRun [![Build Status](https://img.shields.io/travis/catarse/catarse.svg)](https://travis-ci.org/catarse/catarse) [![Coverage Status](https://img.shields.io/coveralls/catarse/catarse/channels.svg)](https://coveralls.io/r/catarse/catarse) [![Dependency Status](https://img.shields.io/gemnasium/catarse/catarse.svg)](https://gemnasium.com/catarse/catarse) [![Code Climate](https://img.shields.io/codeclimate/github/catarse/catarse.svg)](https://codeclimate.com/github/catarse/catarse)
 
-The first opensource groupbuying platform
+The first opensource USA crowdfunding/groupbuying platform
 
 ## An open source groupbuying platform for local food.
 
 Welcome to ProduceRun's source code repository.
-Our goal with opening the source code is to stimulate the creation of a community of developers around a high-quality groupbuying platform.
+Our goal with opening the source code is to stimulate the creation of a community of developers around a high-quality crowdfunding/groupbuying platform.
 
 You can see the software in action in http://www.producerun.com
 The official repo is https://github.com/producerun/producerun
@@ -64,9 +64,9 @@ This repo is offered in only english at this stage
 
 ## Payment gateways
 
-Currently, we support PayPal through our payment engines. Payment engines are extensions to ProduceRun that implement a specific payment gateway logic.
+Currently, we support Braintree through our payment engines. Payment engines are extensions to ProduceRun that implement a specific payment gateway logic.
 The current working engines are:
-* Braintree
+* Braintree Marketplace, https://www.braintreepayments.com/features/marketplace
 * 
 Wanted payment gateways engines
 *Paypal Express
