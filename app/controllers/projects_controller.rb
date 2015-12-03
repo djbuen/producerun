@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
         return render_index_for_xhr_request if request.xhr?
         projects_for_home
 
-        @farmers = User.near('Little Rock, AR', 1000)
+        @farmers = User.near('Little Rock, AR', 100)
       end
     end
   end
