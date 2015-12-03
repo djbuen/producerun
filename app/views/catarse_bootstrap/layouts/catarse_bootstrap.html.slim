@@ -55,20 +55,21 @@ html
 
     = yield
 
-    div#farmer_locations.hidden
-      - @farmers.each_with_index do |farmer, index|
-        - if index == @farmers.size - 1
-          '{
-            "name": "#{farmer.name}",
-            "lat": #{farmer.latitude},
-            "lng": #{farmer.longitude}
-          '}
-        -else
-          '{
-            "name": "#{farmer.name}",
-            "lat": #{farmer.latitude},
-            "lng": #{farmer.longitude}
-          '},
+    - if controller_name == "projects" && action_name == "index"
+      div#farmer_locations.hidden
+        - @farmers.each_with_index do |farmer, index|
+          - if index == @farmers.size - 1
+            '{
+              "name": "#{farmer.name}",
+              "lat": #{farmer.latitude},
+              "lng": #{farmer.longitude}
+            '}
+          -else
+            '{
+              "name": "#{farmer.name}",
+              "lat": #{farmer.latitude},
+              "lng": #{farmer.longitude}
+            '},
 
     = javascript_include_tag :application
 
