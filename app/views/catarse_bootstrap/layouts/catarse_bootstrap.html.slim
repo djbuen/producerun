@@ -35,17 +35,16 @@ html
       = yield :meta_tags
     - else
       /meta tags for the whole site
-      meta name="description"         content=t('site.description')
-      meta name="keywords"            content=t('site.keywords')
-      meta property="og:title"        content=t('site.title')
-      meta property="og:type"         content=:cause
-      meta property="og:url"          content=root_url
-      meta property="og:image"        content=CatarseSettings[:company_logo]
-      meta property="og:site_name"    content=CatarseSettings[:company_name]
-      meta property="fb:app_id"       content=CatarseSettings[:facebook_app_id]
-      meta property="og:description"  content=(t('projects.index_header.title') + '. ' +  t('projects.index_header.subtitle'))
-    /script src="//load.sumome.com/" data-sumo-site-id="4b8487b5b94c7b9f7b6e70c4503ec620909982bc0dd1cedf3d9693367e4135d8" async="async"
-    = javascript_include_tag "//maps.googleapis.com/maps/api/js?sensor=false"
+      meta name="description" content=t('site.description')
+      meta name="keywords" content=t('site.keywords')
+      meta property="og:title" content=t('site.title')
+      meta property="og:type" content=:cause
+      meta property="og:url" content=root_url
+      meta property="og:image" content=CatarseSettings[:company_logo]
+      meta property="og:site_name" content=CatarseSettings[:company_name]
+      meta property="fb:app_id" content=CatarseSettings[:facebook_app_id]
+      meta property="og:description" content=(t('projects.index_header.title') + '. ' +  t('projects.index_header.subtitle'))
+  /script src="//load.sumome.com/" data-sumo-site-id="4b8487b5b94c7b9f7b6e70c4503ec620909982bc0dd1cedf3d9693367e4135d8" async="async"
   body#catarse_bootstrap[data-controller-name=controller_name data-action=action_name data-user="#{current_user.try(:to_analytics_json)}" data-mobile=browser.mobile?.to_s]
     = render 'layouts/global_alert'
     = render 'layouts/new_zendesk'
@@ -54,7 +53,71 @@ html
     = render 'layouts/webfont'
 
     = yield
+
+
   = javascript_include_tag :application
+  javascript:
+    var map,
+            infoWindow,
+            service;
+
+    function initMap() {
+      var cedar = new google.maps.LatLng(41.9788161, -91.6735274);
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: cedar,
+        zoom: 14,
+        scrollwheel: false
+      });
+
+      var request = {
+        location: cedar,
+        radius: '600',
+        //type: ['food'],
+        query: 'farm'
+
+      };
+
+      infoWindow = new google.maps.InfoWindow;
+
+      service = new google.maps.places.PlacesService(map);
+      //service.nearbySearch(request, callback);
+      service.textSearch(request, callback);
+    }
+
+    function callback(results, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          addMarker(results[i]);
+        }
+      }
+    }
+
+    function addMarker(place) {
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        icon: {
+          url: "#{asset_url('gmap-pin.png')}",
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(40, 46)
+        }
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        service.getDetails(place, function (result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+            console.error(status);
+            return;
+          }
+          console.log(result)
+          infoWindow.setContent("<p class='fontsize-base fontweight-bold u-marginbottom-0'>" + result.name + "</p>" + result.formatted_address);
+          infoWindow.open(map, marker);
+        });
+      });
+    }
+  = javascript_include_tag "//maps.googleapis.com/maps/api/js?callback=initMap&libraries=places,visualization", :defer => true, :async => true
   - if Rails.env.production?
     = render 'layouts/crazzy_egg'
     = render 'layouts/hot_jar'

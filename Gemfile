@@ -105,6 +105,7 @@ gem 'httpclient',     '>= 2.2.5'
 gem 'braintree'
 
 gem 'acts-as-taggable-on'
+gem 'geocoder'
 
 group :production do
   # Gem used to handle image uploading
