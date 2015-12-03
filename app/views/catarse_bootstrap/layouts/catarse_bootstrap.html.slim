@@ -44,7 +44,8 @@ html
       meta property="og:site_name" content=CatarseSettings[:company_name]
       meta property="fb:app_id" content=CatarseSettings[:facebook_app_id]
       meta property="og:description" content=(t('projects.index_header.title') + '. ' +  t('projects.index_header.subtitle'))
-  /script src="//load.sumome.com/" data-sumo-site-id="4b8487b5b94c7b9f7b6e70c4503ec620909982bc0dd1cedf3d9693367e4135d8" async="async"
+    = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places,visualization", :defer => true, :async => true
+
   body#catarse_bootstrap[data-controller-name=controller_name data-action=action_name data-user="#{current_user.try(:to_analytics_json)}" data-mobile=browser.mobile?.to_s]
     = render 'layouts/global_alert'
     = render 'layouts/new_zendesk'
@@ -54,28 +55,27 @@ html
 
     = yield
 
-  = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places,visualization", :defer => true, :async => true
-  = javascript_include_tag :application
+    div#farmer_locations.hidden
+      - @farmers.each_with_index do |farmer, index|
+        - if index == @farmers.size - 1
+          '{
+            "name": "#{farmer.name}",
+            "lat": #{farmer.latitude},
+            "lng": #{farmer.longitude}
+          '}
+        -else
+          '{
+            "name": "#{farmer.name}",
+            "lat": #{farmer.latitude},
+            "lng": #{farmer.longitude}
+          '},
 
-  div#farmer_locations.hidden
-    - @farmers.each_with_index do |farmer, index|
-      - if index == @farmers.size - 1
-        '{
-          "name": "#{farmer.name}",
-          "lat": #{farmer.latitude},
-          "lng": #{farmer.longitude}
-        '}
-      -else
-        '{
-          "name": "#{farmer.name}",
-          "lat": #{farmer.latitude},
-          "lng": #{farmer.longitude}
-        '},
+    = javascript_include_tag :application
 
-  - if Rails.env.production?
-    = render 'layouts/crazzy_egg'
-    = render 'layouts/hot_jar'
-    = render_google_analytics_script
-    = render_mixpanel_script
-    = javascript_include_tag "//cdn.optimizely.com/js/2188501553.js"
-    = render 'layouts/intercom'
+    - if Rails.env.production?
+      = render 'layouts/crazzy_egg'
+      = render 'layouts/hot_jar'
+      = render_google_analytics_script
+      = render_mixpanel_script
+      = javascript_include_tag "//cdn.optimizely.com/js/2188501553.js"
+      = render 'layouts/intercom'
