@@ -46,7 +46,7 @@ html
       meta property="og:description" content=(t('projects.index_header.title') + '. ' +  t('projects.index_header.subtitle'))
     = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places,visualization", :defer => true, :async => true
 
-  body#catarse_bootstrap[data-controller-name=controller_name data-action=action_name data-user="#{current_user.try(:to_analytics_json)}" data-mobile=browser.mobile?.to_s]
+  body#catarse_bootstrap[data-controller-name=controller_name data-action=action_name data-request-path=request.path data-user="#{current_user.try(:to_analytics_json)}" data-mobile=browser.mobile?.to_s]
     = render 'layouts/global_alert'
     = render 'layouts/new_zendesk'
     = render_facebook_sdk
@@ -55,7 +55,7 @@ html
 
     = yield
 
-    - if controller_name == "projects" && action_name == "index"
+    - if current_page?('/')
       div#farmer_locations.hidden
         - @farmers.each_with_index do |farmer, index|
           - if index == @farmers.size - 1
