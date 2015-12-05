@@ -3,7 +3,7 @@ en:
   devise:
     sessions:
       new:
-        no_account_html: No account ?
+        no_account_html: No account?
         titles:
           site: Login
           header: Login
