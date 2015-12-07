@@ -1,6 +1,6 @@
 namespace :cron do
   desc "Tasks that should run hourly"
-  task hourly: [:finish_projects, :cancel_expired_waiting_confirmation_contributions, :release_transations, :refund_transations]
+  task hourly: [:finish_projects, :cancel_expired_waiting_confirmation_contributions, :release_transations, :refund_transations, :update_latest_braintree_status]
 
   desc "Tasks that should run daily"
   task daily: [:update_payment_service_fee, :notify_project_owner_about_new_confirmed_contributions, :move_pending_contributions_to_trash, :deliver_projects_of_week]
@@ -65,15 +65,15 @@ namespace :cron do
   ### CRON Job for release_transations from escrow where escrow status released? ###
   desc "Release transation from escrow"
   task release_transations: :environment do
+    puts "Release transation from escrow the hourly..."
     Project.with_state('processing_for_releasing').find_in_batches do |batch|
       batch.each do |project|
-        contribution_list = project.contributions.collect(&:payment_id).compact
-        contribution_list.each do |contribution|
-          transaction = Braintree::Transaction.find(contribution)
-          result = Braintree::Transaction.release_from_escrow(contribution)
-          contributions = Contribution.find_by_payment_id(contribution)
-          contributions.escrow_status = transaction.escrow_status
-          contributions.save
+        contributions = project.contributions.with_payment_id
+        contributions.each do |contribution|
+          transaction = Braintree::Transaction.find(contribution.payment_id)
+          result = Braintree::Transaction.release_from_escrow(contribution.payment_id)
+          contribution.escrow_status = transaction.escrow_status
+          contribution.save
       end
         project.finish if project.contributions.map(&:escrow_status_released?).all?
         puts "Done"
@@ -85,20 +85,36 @@ namespace :cron do
   ### CRON Job for refund payment for settled or settling state ###
   desc "Refund transation"
   task refund_transations: :environment do
+    puts "Refund transation from escrow the hourly..."
     Project.with_state('processing_for_refund').find_in_batches do |batch|
       batch.each do |project|
         CatarseBraintree::BackerCheckWorker.perform_async(project.id)
-        contribution_status = [Contribution::STATUSES[:settled],Contribution::STATUSES[:settling]]
-        contribution_list = project.contributions.where("braintree_status IN (?)", contribution_status).collect(&:payment_id).compact
-        contribution_list.each do |contribution|
-          transaction = Braintree::Transaction.find(contribution)
-            result = Braintree::Transaction.refund(contribution)
-            contributions = Contribution.find_by_payment_id(contribution)
-            contributions.escrow_status = transaction.escrow_status
-            contributions.save
+        contributions = project.contributions.for_refund_transation_braintree_status
+        contributions.each do |contribution|
+            result = Braintree::Transaction.refund(contribution.payment_id)
+            transaction = Braintree::Transaction.find(contribution.payment_id)
+            contribution.remote_refund_key = result.transaction.id
+            contribution.escrow_status = transaction.escrow_status
+            contribution.save
         end
       end
     end
   end
 ### End CRON Job for refund  ###
+
+### CRON Job for update latest Braintree and escrow state ###
+  desc "update Braintree end Escrow latest Status transation"
+  task update_latest_braintree_status: :environment do
+    puts "update Braintree end Escrow latest Status  the hourly..."
+    contributions = Contribution.in_process_braintree_status
+    contributions.each do |contribution|
+      transaction = Braintree::Transaction.find(contribution.payment_id) rescue nil
+      if transaction
+        contribution.escrow_status = transaction.escrow_status
+        contribution.braintree_status = Contribution::STATUSES[transaction.status.to_sym]
+        contribution.save
+      end
+    end
+  end
+  ### End CRON Job for update latest Braintree and escrow state ###
 end

@@ -47,6 +47,10 @@ class Contribution < ActiveRecord::Base
   }
   scope :anonymous, -> { where(anonymous: true) }
   scope :credits, -> { where("credits OR lower(payment_method) = 'credits'") }
+  scope :for_refund_transation_braintree_status, -> { where ("braintree_status IN (#{Contribution::STATUSES[:settled]},#{Contribution::STATUSES[:settling]}) AND payment_id IS NOT NULL")}
+  scope :with_payment_id, -> { where("payment_id IS NOT NULL ")}
+  scope :in_process_escrow_status, -> { where("escrow_status IN ('hold_pending', 'held','release_pending') AND payment_id IS NOT NULL ")}
+  scope :in_process_braintree_status, -> { where ("braintree_status IN (#{Contribution::STATUSES[:submitted_for_settlement]},#{Contribution::STATUSES[:settling]}, #{Contribution::STATUSES[:settlement_pending]}, #{Contribution::STATUSES[:pending]}) AND payment_id IS NOT NULL")}
   scope :not_anonymous, -> { where(anonymous: false) }
   scope :confirmed_today, -> { with_state('confirmed').where("contributions.confirmed_at::date = to_date(?, 'yyyy-mm-dd')", Time.now.strftime('%Y-%m-%d')) }
   scope :avaiable_to_automatic_refund, -> {
