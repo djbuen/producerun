@@ -5,18 +5,18 @@ en:
       success_follow: Now you follow the category and will receive weekly a list of
         new projects %{name}
       success_unfollow: You failed to follow this category %{name}
-      follow: follow
+      follow: Follow
       unfollow: Unfollow
-      following: followers
+      following: Followers
       categories: Categories
-      expiring: In the final stretch
-      in_funding: from to
+      expiring: In the Final Stretch
+      in_funding: From To
       near: Near Me
-      quick_explore: qUICK SEARCH
+      quick_explore: Quick Search
       recent: recent
-      recommended: recommended
+      recommended: Recommended
       subtitle: Explore the campaigns , find those that touch your heart and make it
-        happen !
+        happen!
       successful: Successful
-      title: Find amazing campaigns
-    title: Explore the campaigns
+      title: Find Amazing Campaigns
+    title: Explore the Campaigns

@@ -82,14 +82,14 @@ en:
         order_created_at: Date of dispatch
         last_modification: Last updated
     actions:
-      confirm: confirm
+      confirm: Confirm
     users:
       index:
         title: Supporters management
-        menu: supporters
-        credits: credits
+        menu: Supporters
+        credits: Credits
         credits_view: credits calculated
-        id: Id
+        id: ID
         key: key
         submit: research
         has_credits_difference: Discrepancy in the credits
@@ -181,14 +181,14 @@ en:
         value: Value
     statistics:
       index:
-        menu: statistics
-        title: statistics
-        total_users: users
-        total_contributions: supports
-        total_contributors: supporters
-        total_contributed: collection
-        total_projects: campaigns
-        total_projects_success: successful
+        menu: Statistics
+        title: Statistics
+        total_users: Users
+        total_contributions: Supports
+        total_contributors: Supporters
+        total_contributed: Cllection
+        total_projects: Campaigns
+        total_projects_success: Successful
         total_projects_online: Online
       projects_in_analysis_by_week:
         title: Campaigns submitted for curating a week
@@ -198,7 +198,7 @@ en:
         title: Support value confirmed by week
       charts:
         current_period: Last 8 without .
-        last_year: previous year
+        last_year: Previous Year
     table:
       name: Campaign Name
       category: Category
@@ -276,7 +276,7 @@ en:
           recommended: Recommended ?
           state: state
           no_projects: No campaigns found
-          menu: Admin campaigns
+          menu: Campaigns
           title: Campaign management
           total_projects: campaigns
           submit: filter
@@ -296,7 +296,7 @@ en:
           menu: supporters
           credits: credits
           credits_view: credits calculated
-          id: Id
+          id: ID
           key: key
           submit: research
           has_credits_difference: Discrepancy in the credits
@@ -364,12 +364,12 @@ en:
           request_refund: To request direct reimbursement
           title: Support management
           state: state
-          menu: supports
+          menu: Supports
           anonymous: Anonymous ?
-          contribution: support
+          contribution: Support
           confirmed: Confirmed ?
           credits_html: Used credits ?
-          id: Id
+          id: ID
           key: key
           no_contributions: No supporter found.
           project: campaign
@@ -386,7 +386,7 @@ en:
           value: value
       statistics:
         index:
-          menu: statistics
+          menu: Statistics
           title: statistics
           total_users: users
           total_contributions: supports

@@ -3,31 +3,31 @@ en:
   layouts:
     footer:
       links:
-        jobs: Work with us
+        jobs: Work With Us
         blog: Blog
-        contact: contact
-        discover: Discover campaigns
-        start: How it works
-        expiring: In the final stretch
+        contact: Contact
+        discover: Discover Campaigns
+        start: How it Works
+        expiring: In the Final Stretch
         facebook: Facebook
-        faq: help
+        faq: Help
         guides: Guide of Directors
         feedback: Feedback
-        github: Github
+        github: GitHub
         instagram: Instagram
         near: Near Me
-        press: press
+        press: Press
         privacy: Privacy Policy
-        recents: recent
-        recommended: recommended
-        submit: Sell food now
-        terms: Terms of use
+        recents: Recent
+        recommended: Recommended
+        submit: Sell Food Now
+        terms: Terms of Use
         twitter: Twitter
       texts:
-        copyleft: ProduceRun, Inc
+        copyleft: ProduceRun, Inc.
       titles:
-        about: help
+        about: Help
         contact: Connect With Us!
-        newsletter: Subscribe to our news
+        newsletter: Subscribe to our News
         sitemap: Browse
-        social: social networks
+        social: Social Networks
