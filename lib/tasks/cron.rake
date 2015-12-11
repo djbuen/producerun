@@ -69,14 +69,14 @@ namespace :cron do
     Project.with_state('processing_for_releasing').find_in_batches do |batch|
       batch.each do |project|
         contributions = project.contributions.with_payment_id
-        contributions.each do |contribution|
-          transaction = Braintree::Transaction.find(contribution.payment_id)
-          result = Braintree::Transaction.release_from_escrow(contribution.payment_id)
-          contribution.escrow_status = transaction.escrow_status
-          contribution.save
-      end
-        project.finish if project.contributions.map(&:escrow_status_released?).all?
-        puts "Done"
+          contributions.each do |contribution|
+            transaction = Braintree::Transaction.find(contribution.payment_id)
+            result = Braintree::Transaction.release_from_escrow(contribution.payment_id)
+            contribution.escrow_status = transaction.escrow_status
+            contribution.save
+          end
+        project.finish if contributions.map(&:escrow_status_released?).all?
+          puts "Done"
       end
     end
   end
@@ -97,6 +97,7 @@ namespace :cron do
             contribution.escrow_status = transaction.escrow_status
             contribution.save
         end
+        project.finish if contributions.map(&:escrow_status_refund?).all?
       end
     end
   end
