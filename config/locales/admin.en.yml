@@ -151,11 +151,11 @@ en:
         cancel: Cancel Support
         between_values: Values Between
         by_state: State
-        refund_and_hide: Reversal and do not display support.
+        refund_and_hide: Reversal and Don't Display Support
         pending_to_refund: chargebacks pending
-        confirm_contribution: confirm support
-        unconfirm_contribution: disconfirm support
-        refund_contribution: Reverse support
+        confirm_contribution: Confirm Support
+        unconfirm_contribution: Disconfirm Support
+        refund_contribution: Reverse Support
         request_refund: To request direct reimbursement
         title: Support Management
         state: Status

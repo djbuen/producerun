@@ -150,3 +150,18 @@
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
+
+.transaction-details-container {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 4px;
+
+
+
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 1em;
+    }
+  }
+}
