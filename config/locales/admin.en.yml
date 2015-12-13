@@ -104,6 +104,9 @@ en:
         provider: provider
     contributions:
       title: Contributions
+      details:
+        show: Show Details
+        hide: Hide Details
 
       messages:
         successful:

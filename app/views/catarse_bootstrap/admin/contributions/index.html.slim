@@ -36,15 +36,15 @@
       
     .w-row
       .filter--expander
-        =link_to t('admin.filter.more'), '#', class: 'toggle-filters', data: {more: t('admin.filter.more'), less: t('admin.filter.less')}
+        =link_to t('admin.filter.more'), '#', class: 'toggle-filters', data: { target: '.more-filters', more: t('admin.filter.more'), less: t('admin.filter.less')}
 
   = paginate @contributions
   - if @contributions.empty?
     = t('.no_contributions')
   - else
     - @contributions.includes(:project, :user, :reward).each do |contribution|
-      table.table.admin-contributions
-        thead.card.card-secondary
+      table.table.fontsize-smallest.table-bordered.table-hover.admin-contributions
+        thead
           tr
             th= t('.contribution')
             th= t('.project')
@@ -128,7 +128,9 @@
                       = link_to 'Segunda via de boleto', contribution.second_slip_path, target: '__blank', method: :put, class: 'w-dropdown-link dropdown-link fontsize-smaller'
           tr class='detail_tr' id="contribution_details-#{contribution.id}"
             td colspan='11'
-              div.transaction-details-container.w-clearfix
+              div.filter--expander
+                =link_to t('admin.contributions.details.show'), '#', class: 'toggle-filters', data: { target: '.transaction-details-container', more: t('admin.contributions.details.show'), less: t('admin.contributions.details.hide')}
+              div.transaction-details-container.w-clearfix style="display: none"
                 h4="Contribution Details"
                 ul.w-col.w-col-3
                   li
