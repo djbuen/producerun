@@ -63,6 +63,13 @@
                       = render partial: 'link_fields', locals: { f: link_form, parent_form: form }
 
                     = link_to_add_association " . ", form, :links, :'data-association-insertion-method' => :after, class: 'w-hidden user-links'
+          .w-form.card.card-terciary.u-marginbottom-30
+              .w-row.u-marginbottom-10
+                .w-col.w-col-5.w-sub-col
+                  label.field-label.fontweight-semibold for="name-8"  What we produce: Fill out all the tags of everything you produce to be found
+                  label.field-label.fontsize-smallest.fontcolor-secondary for="name-8"  (separated by commas)
+                .w-col.w-col-7
+                  = form.input_field :tag_list, as: :string, class: 'positive'
           .w-row
             .w-col.w-col-8.w-sub-col
               .card.card-terciary.u-marginbottom-30
@@ -71,6 +78,7 @@
                 .w-form
                   .preview-container.u-marginbottom-40
                     = form.input_field :about, class: 'w-input text-field bottom big positive'
+
             .w-col.w-col-4
               = render 'shared/formatting_tips'
 
