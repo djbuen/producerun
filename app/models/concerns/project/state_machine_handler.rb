@@ -69,9 +69,14 @@ module Project::StateMachineHandler
         transition waiting_funds: :failed,      if: ->(project) {
           project.should_fail?
         }
-        ## Start add transition for processing to completed ##
+        ## Start add transition for processing_for_releasing to completed ##
         transition processing_for_releasing: :completed,      if: ->(project) {
           project.processing_for_releasing?
+        }
+        ## End add transition for processing to completed ##
+        ## Start add transition for processing_for_refund to completed ##
+        transition processing_for_refund: :completed,      if: ->(project) {
+          project.processing_for_refund?
         }
         ## End add transition for processing to completed ##
       end

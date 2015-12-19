@@ -1,6 +1,7 @@
 // Admin CSS
 
 @import 'lib/bootstrap-tables';
+@import 'lib/bootstrap-modal';
 
 .admin--title {
   padding: 0.5em 0 0.2em;
@@ -149,4 +150,19 @@
   border-top: 4px solid\9;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
+}
+
+.transaction-details-container {
+  .detail_tr & {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 1em;
+    }
+  }
 }

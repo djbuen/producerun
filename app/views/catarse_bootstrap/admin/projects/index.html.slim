@@ -28,7 +28,7 @@
               .w-row
             .w-col-2.w-col
               = form.input "#{between_field}[start_at]", as: :string, label: t(".#{between_field}"), input_html: {value: params[between_field] && params[between_field][:start_at], data: { fixed_mask: mask } , class: 'w-input text-field'}
-            .w-col-2.no-label.w-col
+            .w-col-2.w-col
               = form.input "#{between_field}[ends_at]", as: :string, label: false, input_html: { value: params[between_field] && params[between_field][:ends_at], data: { fixed_mask: mask } , class: 'w-input text-field'}
       
       .w-col-2.no-label.w-col
@@ -93,19 +93,19 @@
             td.w-col-1.w-col= project.updated_at.strftime('%d/%m/%Y')
             td.w-col-1.w-col
               .dropdown.dropdown-right
-                button.btn.btn-smaller#dLabel aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+                button.btn.btn-smaller#dLabel aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
                   - if project.online?
-                      span.label.label-online= project.state.humanize
+                      span.label.label-online= project.state.humanize.titlecase
                   - elsif project.successful?
-                    span.label.label-success= project.state.humanize
+                    span.label.label-success= project.state.humanize.titlecase
                   - elsif project.failed? or project.rejected?
-                    span.label.label-important= project.state.humanize
+                    span.label.label-important= project.state.humanize.titlecase
                   - elsif project.waiting_funds?
-                    span.label.label-warning= project.state.humanize
+                    span.label.label-warning= project.state.humanize.titlecase
                   - else
-                    span.label= project.state.humanize
+                    span.label= project.state.humanize.titlecase
                   span.caret
-                ul.dropdown-menu aria-labelledby="dLabel" 
+                ul.dropdown-menu aria-labelledby="dLabel"
                   - if project.can_push_to_online?
                     li
                       = link_to push_to_online_admin_project_path(project), class: 'w-dropdown-link dropdown-link fontsize-smaller', method: :put do

@@ -85,6 +85,7 @@ class Projects::ContributionsController < ApplicationController
           # :merchant_account_id => ENV['braintree_sub_merchant_id'],
           :merchant_account_id => bank_card_detail.remote_id,
           :amount => @contribution.value.to_f,
+          :service_fee_amount => @contribution.value.to_f * 0.03,
           :credit_card => {
               :number => @contribution.card_number,
               :expiration_month => @contribution.card_expiration_month,
@@ -95,7 +96,6 @@ class Projects::ContributionsController < ApplicationController
               :submit_for_settlement => true,
               :hold_in_escrow => true
           },
-          :service_fee_amount => '0.00'
       )
     end
 

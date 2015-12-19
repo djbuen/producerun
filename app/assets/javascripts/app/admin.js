@@ -3,7 +3,8 @@ App.addChild('Admin', {
 
   events: {
     'click .project-admin-menu' : "toggleAdminMenu",
-    'click .toggle-filters': 'toggleFilters',
+    'click .toggle-filters': 'toggleContent',
+    'click .btn-contrib': 'showContribution'
   },
 
   toggleAdminMenu: function(event){
@@ -14,7 +15,7 @@ App.addChild('Admin', {
     return false;
   },
 
-  toggleFilters: function(event) {
+  toggleContent: function(event) {
     var btn = $(event.target);
     btn.toggleClass('more');
     if (btn.text() == btn.data('more')) {
@@ -22,7 +23,16 @@ App.addChild('Admin', {
     } else {
       btn.text(btn.data('more'));
     }
-    $('.more-filters').slideToggle();
+    $(btn.data('target')).slideToggle();
     event.preventDefault();
+  },
+
+  showContribution: function(e) {
+    var link = e.target,
+        modalContainer = $(link).data('target');
+
+    $(link).on( "ajax:success", function(e, data, status, xhr) {
+      $(modalContainer).find('.modal-content').html(data);
+    })
   }
 });

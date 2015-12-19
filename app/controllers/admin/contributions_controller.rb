@@ -5,6 +5,10 @@ class Admin::ContributionsController < Admin::BaseController
   has_scope :between_values, using: [ :start_at, :ends_at ], allow_blank: true
   before_filter :set_title
 
+  def show
+    render layout: false
+  end
+
   def self.contribution_actions
     %w[confirm pendent refund hide cancel push_to_trash request_refund].each do |action|
       define_method action do

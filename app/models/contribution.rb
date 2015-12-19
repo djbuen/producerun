@@ -105,6 +105,10 @@ class Contribution < ActiveRecord::Base
     self.escrow_status == "released"
   end
 
+  def escrow_status_refund?
+    self.escrow_status == "refunded"
+  end
+
   def invalid_refund
     _user = User.find_by(email: CatarseSettings[:email_contact])
     notify(:invalid_refund, _user, self) if _user
